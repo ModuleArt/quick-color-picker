@@ -42,3 +42,8 @@
 <p align="center">
   <a href="https://annystudio.com/software/colorpicker/">Just Color Picker</a> by AnnyStudio
 </p>
+
+<h2 align="center">Other "Quick" apps</h2>
+<p align="center">
+  <a href="https://github.com/ModuleArt/quick-picture-viewer/">Quick Picture Viewer</a> - A photo viewer
+</p>
