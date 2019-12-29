@@ -4,7 +4,7 @@
 <h1 align="center">Quick Color Picker</h1>
 
 <p align="center">
-  Quick Color Picker is a lightweight color picker utility for Windows, build on top of WinForms (C#).
+  Quick Color Picker is a lightweight desktop color picker and color editor utility to get and save colors code quickly for Windows, build on top of WinForms (C#).
 </p>
 
 <p align="center">
