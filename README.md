@@ -40,7 +40,7 @@
 
 <h2 align="center">Inspirers</h2>
 <p align="center">
-  <a href="https://annystudio.com/software/colorpicker/">Just Color Picker</a> by AnnyStudio
+  <a href="https://annystudio.com/software/colorpicker/">Just Color Picker</a> v5.1 by AnnyStudio
 </p>
 
 <h2 align="center">Other "Quick" apps</h2>
