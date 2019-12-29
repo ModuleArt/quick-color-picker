@@ -29,7 +29,7 @@
 <h2 align="center">Screenshots</h2>
 <p align="center">
   <img src="/docs/screenshots/main.png">
-  <img src="/docs/screenshots/main2.png">
+  <img src="/docs/screenshots/about.png">
 </p>
 
 <h2 align="center">Additional</h2>
