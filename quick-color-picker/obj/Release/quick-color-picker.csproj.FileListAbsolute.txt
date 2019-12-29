@@ -1,0 +1,14 @@
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Release\quick-color-picker.exe.config
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Release\quick-color-picker.exe
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Release\quick-color-picker.pdb
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Release\GitHubUpdate.dll
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Release\Octokit.dll
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Release\Semver.dll
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.csprojAssemblyReference.cache
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick_color_picker.AboutForm.resources
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick_color_picker.MainForm.resources
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick_color_picker.Properties.Resources.resources
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.csproj.GenerateResource.cache
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.csproj.CopyComplete
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.exe
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.pdb
