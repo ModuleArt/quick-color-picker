@@ -22,14 +22,14 @@ namespace quick_color_picker
 				infoGroup.ForeColor = Color.White;
 				pagesGroup.ForeColor = Color.White;
 
-				Color linkColor = ThemeManager.getColorizationColor();
+				Color linkColor = ThemeManager.AccentColorDark;
 
 				updatesLink.LinkColor = linkColor;
 				developerLink.LinkColor = linkColor;
 				projectLink.LinkColor = linkColor;
 				issuesLink.LinkColor = linkColor;
 
-				okButton.BackColor = ThemeManager.MainColorDark;
+				okButton.BackColor = ThemeManager.SecondColorDark;
 			}
 		}
 
@@ -53,6 +53,14 @@ namespace quick_color_picker
 			MainForm parent = (MainForm)this.Owner;
 
 			parent.checkForUpdates(true);
+		}
+
+		private void AboutForm_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
 		}
 	}
 }

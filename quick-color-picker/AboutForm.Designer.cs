@@ -135,7 +135,8 @@
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+			this.okButton.FlatAppearance.BorderSize = 0;
+			this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.okButton.Location = new System.Drawing.Point(190, 357);
 			this.okButton.Margin = new System.Windows.Forms.Padding(0);
 			this.okButton.Name = "okButton";
@@ -188,8 +189,8 @@
 			this.pagesGroup.Controls.Add(this.developerLink);
 			this.pagesGroup.Controls.Add(this.projectLink);
 			this.pagesGroup.Controls.Add(this.issuesLink);
-			this.pagesGroup.Location = new System.Drawing.Point(9, 292);
-			this.pagesGroup.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+			this.pagesGroup.Location = new System.Drawing.Point(9, 291);
+			this.pagesGroup.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
 			this.pagesGroup.Name = "pagesGroup";
 			this.pagesGroup.Size = new System.Drawing.Size(256, 58);
 			this.pagesGroup.TabIndex = 37;
@@ -207,6 +208,7 @@
 			this.Controls.Add(this.okButton);
 			this.Controls.Add(this.logoPictureBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "AboutForm";
@@ -215,6 +217,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "About";
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
 			this.infoGroup.ResumeLayout(false);
 			this.infoGroup.PerformLayout();

@@ -16,6 +16,7 @@ namespace quick_color_picker
 		private Color aimColor;
 		private bool darkMode = false;
 		private bool alwaysOnTop = true;
+		private bool anotherFormat = false;
 
 		public MainForm()
 		{
@@ -131,9 +132,27 @@ namespace quick_color_picker
 
 		private void GetColor()
 		{
-			colorList.Items.Add(aimColor.R + "," + aimColor.G + "," + aimColor.B);
+			AddColor(aimColor);
 			colorList.SetSelected(colorList.Items.Count - 1, true);
 			SaveColorList();
+		}
+
+		private void AddColor(Color c)
+		{
+			colorList.Items.Add(c.R + ", " + c.G + ", " + c.B);
+		}
+
+		private void AddColor(string s)
+		{
+			try
+			{
+				textToColor(s);
+				colorList.Items.Add(s);
+			}
+			catch
+			{
+
+			}
 		}
 
 		private void colorList_DrawItem(object sender, DrawItemEventArgs e)
@@ -190,24 +209,37 @@ namespace quick_color_picker
 		{
 			if (colorList.SelectedIndex != -1)
 			{
+				deleteButton.Enabled = true;
+
 				string t = colorList.Items[colorList.SelectedIndex].ToString();
 				Color c = textToColor(t);
 
-				rgbTextBox.Text = t;
-				htmlTextBox.Text = ColorTranslator.ToHtml(c).ToString();
-
+				string htmlText = ColorTranslator.ToHtml(c).ToString();
 				int[] cmyk = RgbToCmyk(c.R, c.G, c.B);
-				cmykTextBox.Text = cmyk[0] + "," + cmyk[1] + "," + cmyk[2] + "," + cmyk[3];
-
 				int[] hsl = ColorToHsl(c);
-				hslTextBox.Text = hsl[0] + "," + hsl[1] + "," + hsl[2];
 
 				double rOne = c.R / (double)255;
 				double gOne = c.G / (double)255;
 				double bOne = c.B / (double)255;
-				rgbOneTextBox.Text = rOne.ToString("0.##") + "/" + gOne.ToString("0.##") + "/" + bOne.ToString("0.##");
 
-				gridPanel.BackColor = c;
+				if (anotherFormat)
+				{
+					rgbTextBox.Text = "rgb(" + c.R + ", " + c.G + ", " + c.B + ")";
+					htmlTextBox.Text = "0x" + htmlText.Substring(1, htmlText.Length - 1);
+					cmykTextBox.Text = "cmyk(" + cmyk[0] + "%, " + cmyk[1] + "%, " + cmyk[2] + "%, " + cmyk[3] + "%)";
+					hslTextBox.Text = "hsl(" + hsl[0] + ", " + hsl[1] + "%, " + hsl[2] + "%)";
+					rgbOneTextBox.Text = rOne.ToString("0.####") + " / " + gOne.ToString("0.####") + " / " + bOne.ToString("0.####");
+				}
+				else
+				{
+					rgbTextBox.Text = t;
+					htmlTextBox.Text = htmlText;
+					cmykTextBox.Text = cmyk[0] + ", " + cmyk[1] + ", " + cmyk[2] + ", " + cmyk[3];
+					hslTextBox.Text = hsl[0] + ", " + hsl[1] + ", " + hsl[2];
+					rgbOneTextBox.Text = rOne.ToString("0.##") + "; " + gOne.ToString("0.##") + "; " + bOne.ToString("0.##");
+				}
+
+				gradPanel.BackColor = c;
 
 				int r1 = c.R - 50;
 				int g1 = c.G - 50;
@@ -261,6 +293,11 @@ namespace quick_color_picker
 
 				gradPanel4.BackColor = Color.FromArgb(r4, g4, b4);
 			}
+			else
+			{
+				deleteButton.Enabled = false;
+			}
+
 			colorList.Refresh();
 		}
 
@@ -328,13 +365,37 @@ namespace quick_color_picker
 
 		private void applyDarkTheme()
 		{
-			this.ForeColor = Color.White;
-
-			toolStrip1.BackColor = ThemeManager.BackColorDark;
-
 			this.BackColor = ThemeManager.BackColorDark;
-
+			this.ForeColor = Color.White;
+			toolStrip1.BackColor = ThemeManager.BackColorDark;
 			colorList.BackColor = ThemeManager.SecondColorDark;
+
+			rgbTextBox.BackColor = ThemeManager.SecondColorDark;
+			rgbTextBox.ForeColor = Color.White;
+
+			htmlTextBox.BackColor = ThemeManager.SecondColorDark;
+			htmlTextBox.ForeColor = Color.White;
+
+			cmykTextBox.BackColor = ThemeManager.SecondColorDark;
+			cmykTextBox.ForeColor = Color.White;
+
+			hslTextBox.BackColor = ThemeManager.SecondColorDark;
+			hslTextBox.ForeColor = Color.White;
+
+			rgbOneTextBox.BackColor = ThemeManager.SecondColorDark;
+			rgbOneTextBox.ForeColor = Color.White;
+
+			rgbCopyButton.Image = Properties.Resources.white_copy;
+			htmlCopyButton.Image = Properties.Resources.white_copy;
+			cmykCopyButton.Image = Properties.Resources.white_copy;
+			hslCopyButton.Image = Properties.Resources.white_copy;
+			rgbOneCopyButton.Image = Properties.Resources.white_copy;
+
+			onTopButton.Image = Properties.Resources.white_ontop;
+			clearListButton.Image = Properties.Resources.white_broom;
+			deleteButton.Image = Properties.Resources.white_trash;
+			formatButton.Image = Properties.Resources.white_format;
+			aboutButton.Image = Properties.Resources.white_about;
 		}
 
 		private void hslCopyButton_Click(object sender, EventArgs e)
@@ -359,6 +420,17 @@ namespace quick_color_picker
 			onTopButton.Checked = b;
 		}
 
+		private void setAnotherFormat(bool b)
+		{
+			anotherFormat = b;
+			formatButton.Checked = b;
+
+			if (colorList.SelectedIndex != -1)
+			{
+				colorList.SetSelected(colorList.SelectedIndex, true);
+			}
+		}
+
 		private void MainForm_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Control)
@@ -370,6 +442,10 @@ namespace quick_color_picker
 				else if (e.KeyCode == Keys.L)
 				{
 					clearListButton.PerformClick();
+				}
+				else if (e.KeyCode == Keys.F)
+				{
+					formatButton.PerformClick();
 				}
 			} 
 			else
@@ -395,17 +471,42 @@ namespace quick_color_picker
 		{
 			if (colorList.SelectedIndex != -1)
 			{
-				colorList.Items.RemoveAt(colorList.SelectedIndex);
+				int curIndex = colorList.SelectedIndex;
+				colorList.Items.RemoveAt(curIndex);
+
+				if (colorList.Items.Count > 0)
+				{
+					if (colorList.Items.Count - 1 >= curIndex)
+					{
+						colorList.SetSelected(curIndex, true);
+					}
+					else if (colorList.Items.Count >= curIndex)
+					{
+						colorList.SetSelected(curIndex - 1, true);
+					}
+				}
+
 				SaveColorList();
 			}
 		}
 
 		private void aboutButton_Click(object sender, EventArgs e)
 		{
-			setAlwaysOnTop(false);
 			AboutForm aboutBox = new AboutForm();
 			aboutBox.Owner = this;
+			if (alwaysOnTop)
+			{
+				aboutBox.TopMost = true;
+			}
+			aboutBox.FormClosed += aboutBox_FormClosed;
 			aboutBox.ShowDialog();
+		}
+
+		private void aboutBox_FormClosed(object sender, EventArgs e)
+		{
+			AboutForm aboutBox = sender as AboutForm;
+			aboutBox.Dispose();
+			aboutBox = null;
 		}
 
 		public async void checkForUpdates(bool showUpToDateDialog)
@@ -443,13 +544,27 @@ namespace quick_color_picker
 
 		private void SaveColorList()
 		{
-			string[] linesToWrite = new string[colorList.Items.Count];
-			for (int i = 0; i < colorList.Items.Count; i++)
+			try
 			{
-				linesToWrite[i] = colorList.Items[i].ToString();
-			}
+				string path = "color-list.txt";
 
-			System.IO.File.WriteAllLines("color-list.txt", linesToWrite);
+				if (!File.Exists(path))
+				{
+					File.Create(path);
+				}
+
+				string[] linesToWrite = new string[colorList.Items.Count];
+				for (int i = 0; i < colorList.Items.Count; i++)
+				{
+					linesToWrite[i] = colorList.Items[i].ToString();
+				}
+
+				File.WriteAllLines(path, linesToWrite);
+			}
+			catch
+			{
+
+			}
 		}
 
 		private void LoadColorList()
@@ -460,7 +575,14 @@ namespace quick_color_picker
 
 				for (int i = 0; i < lines.Length; i++)
 				{
-					colorList.Items.Add(lines[i]);
+					try
+					{
+						AddColor(lines[i]);
+					}
+					catch
+					{
+
+					}
 				}
 
 				colorList.SetSelected(colorList.Items.Count - 1, true);
@@ -469,6 +591,16 @@ namespace quick_color_picker
 			{
 
 			}
+		}
+
+		private void gradPanel_Click(object sender, EventArgs e)
+		{
+			AddColor((sender as Panel).BackColor);
+		}
+
+		private void formatButton_Click(object sender, EventArgs e)
+		{
+			setAnotherFormat(!anotherFormat);
 		}
 	}
 }

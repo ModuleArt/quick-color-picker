@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/quick-color-picker/resources/imgs/picker80.png">
+  <img src="/quick-color-picker/resources/imgs/picker96.png">
 </p>
 <h1 align="center">Quick Color Picker</h1>
 
@@ -22,13 +22,14 @@
 
 <h2 align="center">Install</h2>
 <p align="center">
-  Windows XP, 7, 8.1, 10  |  Size: 0.7 MB | v1.0.0 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.0.0/QuickColorPicker-Setup.msi">Download</a><br>
+  Windows 7, 8.1, 10  |  Size: 0.9 MB | v1.1.0 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.1.0/QuickColorPicker-Setup.msi">Download</a><br>
   Uses <a href="https://dotnet.microsoft.com/download/dotnet-framework/net472">.Net 4.7.2</a>
 </p>
 
 <h2 align="center">Screenshots</h2>
 <p align="center">
   <img src="/docs/screenshots/main.png">
+  <img src="/docs/screenshots/format.png">
   <img src="/docs/screenshots/about.png">
 </p>
 

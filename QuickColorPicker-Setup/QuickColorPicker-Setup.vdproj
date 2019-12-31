@@ -134,6 +134,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -447,15 +455,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Quick Color Picker"
-        "ProductCode" = "8:{737E2161-2CC2-4FC8-AB38-F3EBF697F910}"
-        "PackageCode" = "8:{C0FDB1BE-BF99-43B3-9AED-97823B30F01A}"
+        "ProductCode" = "8:{4E25DB7F-8ECD-4C69-8228-731B26BCD98E}"
+        "PackageCode" = "8:{D6C7937A-DF58-4B1F-BBAE-55575C180D8C}"
         "UpgradeCode" = "8:{B447EAAB-B636-490E-8AC4-266A6136D6BF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:Module Art"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -997,7 +1005,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E929A9F44EE84118A9055D6931B25A82"
             {
-            "SourcePath" = "8:..\\quick-color-picker\\obj\\Release\\quick-color-picker.exe"
+            "SourcePath" = "8:..\\quick-color-picker\\obj\\Debug\\quick-color-picker.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4E105E1FB7D74141BA826FE0A8CC7FE5"
