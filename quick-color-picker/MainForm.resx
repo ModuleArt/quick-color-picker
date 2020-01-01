@@ -158,14 +158,15 @@
   <data name="aboutButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEFSURBVDhPxdMxSwMxHIbxDEoHW6qLgwUXN5fOBcUvo2JH
-        6RcRRFCkW1sodepWWv0ELo4KShXpIgg66SD6vLn7c0cM51R84EcSKCXJ3bl5tIMLvOA1HQfYRmGLOMMt
-        9lDDSjru4w4nWEC0c4yw5Fe/K2OCU78K0rYfUPEr50po4w03qENV8Ygtv8rVh7ZpHWII7WYX17Ca6CXT
-        rBl0VmsTtl7FezL1reM5mWZ9QpcYtoEr5M+t430k06xwB5bO20L+z6M7CO+gqOgd6FbvYU/B+k5HS09h
-        ioZfBR1jDP0o1jIuceRXkexN1Ll1nDUojQd4QuGbaOml6kJb/UrHDv78Fv4j534AH4kvf7euet0AAAAA
-        SUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVDhPxdI7CsJAFEbh2YEGtLEwpXvQykoLVyJYB8U1
+        iK5AULGWLEcUUUiCz8LKTs8vFna5ESQHPiYJZLgT4v5VFTNEeGAJH6ZqSNBDGQX0cYBpkxWGaOIITdGC
+        NlkgtTumWKOONvaoIEZqXQSfVXWwQwlnPbDmIcQGDQwwhzmddwyNPoKOpGtzN2iKLSYoIlNXPHF53+XR
+        CZpA/8JP6eXvNXP5fwNDzr0APQwmIg+0GKQAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="copyTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 17</value>
+  </metadata>
   <data name="rgbOneCopyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -199,6 +200,14 @@
 </value>
   </data>
   <data name="rgbCopyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAGZJREFUOE9joBboAuLvQPwfDwbJtwMxVvATiEUhTJxADIh/QJiYAGQDMQCna0gx
+        AAQwXEOqASCAomfUAEg6EIIwcQJhIEYOeRQDQCnxNxCDBHFhkDxy3IPEsAJyXIMCyHHNgAEGBgClKjy3
+        W3VLWwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hsvCopyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAAGZJREFUOE9joBboAuLvQPwfDwbJtwMxVvATiEUhTJxADIh/QJiYAGQDMQCna0gx

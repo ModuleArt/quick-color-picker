@@ -60,60 +60,61 @@
 			// productLabel
 			// 
 			this.productLabel.AutoSize = true;
-			this.productLabel.Location = new System.Drawing.Point(6, 26);
-			this.productLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+			this.productLabel.Location = new System.Drawing.Point(4, 28);
+			this.productLabel.Margin = new System.Windows.Forms.Padding(3, 19, 3, 3);
 			this.productLabel.Name = "productLabel";
-			this.productLabel.Size = new System.Drawing.Size(95, 13);
+			this.productLabel.Size = new System.Drawing.Size(105, 15);
 			this.productLabel.TabIndex = 27;
 			this.productLabel.Text = "Quick Color Picker";
 			// 
 			// versionLabel
 			// 
 			this.versionLabel.AutoSize = true;
-			this.versionLabel.Location = new System.Drawing.Point(6, 45);
+			this.versionLabel.Location = new System.Drawing.Point(6, 49);
 			this.versionLabel.Margin = new System.Windows.Forms.Padding(3);
 			this.versionLabel.Name = "versionLabel";
-			this.versionLabel.Size = new System.Drawing.Size(42, 13);
+			this.versionLabel.Size = new System.Drawing.Size(45, 15);
 			this.versionLabel.TabIndex = 28;
 			this.versionLabel.Text = "Version";
 			// 
 			// companyLabel
 			// 
 			this.companyLabel.AutoSize = true;
-			this.companyLabel.Location = new System.Drawing.Point(6, 97);
-			this.companyLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+			this.companyLabel.Location = new System.Drawing.Point(6, 103);
+			this.companyLabel.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
 			this.companyLabel.Name = "companyLabel";
-			this.companyLabel.Size = new System.Drawing.Size(72, 13);
+			this.companyLabel.Size = new System.Drawing.Size(83, 15);
 			this.companyLabel.TabIndex = 29;
 			this.companyLabel.Text = "by Module Art";
 			// 
 			// authorLabel
 			// 
 			this.authorLabel.AutoSize = true;
-			this.authorLabel.Location = new System.Drawing.Point(6, 116);
+			this.authorLabel.Location = new System.Drawing.Point(6, 124);
 			this.authorLabel.Margin = new System.Windows.Forms.Padding(3);
 			this.authorLabel.Name = "authorLabel";
-			this.authorLabel.Size = new System.Drawing.Size(122, 13);
+			this.authorLabel.Size = new System.Drawing.Size(134, 15);
 			this.authorLabel.TabIndex = 30;
 			this.authorLabel.Text = "Author: Eugene Volynko";
 			// 
 			// descriptionLabel
 			// 
 			this.descriptionLabel.AutoSize = true;
-			this.descriptionLabel.Location = new System.Drawing.Point(6, 142);
-			this.descriptionLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+			this.descriptionLabel.Location = new System.Drawing.Point(6, 151);
+			this.descriptionLabel.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
 			this.descriptionLabel.Name = "descriptionLabel";
-			this.descriptionLabel.Size = new System.Drawing.Size(181, 13);
+			this.descriptionLabel.Size = new System.Drawing.Size(242, 45);
 			this.descriptionLabel.TabIndex = 31;
-			this.descriptionLabel.Text = "Lightweight color picker for Windows";
+			this.descriptionLabel.Text = "Lightweight desktop color picker and color \r\neditor utility to get and save color" +
+    "s quickly \r\nfor Windows, build on top of WinForms (C#)";
 			// 
 			// developerLink
 			// 
 			this.developerLink.AutoSize = true;
-			this.developerLink.Location = new System.Drawing.Point(6, 26);
-			this.developerLink.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+			this.developerLink.Location = new System.Drawing.Point(6, 28);
+			this.developerLink.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
 			this.developerLink.Name = "developerLink";
-			this.developerLink.Size = new System.Drawing.Size(58, 13);
+			this.developerLink.Size = new System.Drawing.Size(67, 15);
 			this.developerLink.TabIndex = 32;
 			this.developerLink.TabStop = true;
 			this.developerLink.Text = "Module Art";
@@ -122,10 +123,10 @@
 			// projectLink
 			// 
 			this.projectLink.AutoSize = true;
-			this.projectLink.Location = new System.Drawing.Point(70, 26);
+			this.projectLink.Location = new System.Drawing.Point(79, 29);
 			this.projectLink.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
 			this.projectLink.Name = "projectLink";
-			this.projectLink.Size = new System.Drawing.Size(67, 13);
+			this.projectLink.Size = new System.Drawing.Size(73, 15);
 			this.projectLink.TabIndex = 33;
 			this.projectLink.TabStop = true;
 			this.projectLink.Text = "Project page";
@@ -134,15 +135,17 @@
 			// okButton
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.okButton.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.okButton.FlatAppearance.BorderSize = 0;
 			this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.okButton.Location = new System.Drawing.Point(190, 357);
+			this.okButton.Location = new System.Drawing.Point(9, 408);
 			this.okButton.Margin = new System.Windows.Forms.Padding(0);
 			this.okButton.Name = "okButton";
-			this.okButton.Size = new System.Drawing.Size(75, 23);
+			this.okButton.Size = new System.Drawing.Size(256, 23);
 			this.okButton.TabIndex = 21;
-			this.okButton.Text = "&OK";
+			this.okButton.Text = "Close";
+			this.okButton.UseVisualStyleBackColor = false;
 			// 
 			// infoGroup
 			// 
@@ -152,10 +155,10 @@
 			this.infoGroup.Controls.Add(this.productLabel);
 			this.infoGroup.Controls.Add(this.descriptionLabel);
 			this.infoGroup.Controls.Add(this.authorLabel);
-			this.infoGroup.Location = new System.Drawing.Point(9, 109);
-			this.infoGroup.Margin = new System.Windows.Forms.Padding(0);
+			this.infoGroup.Location = new System.Drawing.Point(9, 118);
+			this.infoGroup.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
 			this.infoGroup.Name = "infoGroup";
-			this.infoGroup.Size = new System.Drawing.Size(256, 173);
+			this.infoGroup.Size = new System.Drawing.Size(256, 213);
 			this.infoGroup.TabIndex = 34;
 			this.infoGroup.TabStop = false;
 			this.infoGroup.Text = "Info";
@@ -163,10 +166,10 @@
 			// updatesLink
 			// 
 			this.updatesLink.AutoSize = true;
-			this.updatesLink.Location = new System.Drawing.Point(6, 71);
-			this.updatesLink.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+			this.updatesLink.Location = new System.Drawing.Point(6, 76);
+			this.updatesLink.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
 			this.updatesLink.Name = "updatesLink";
-			this.updatesLink.Size = new System.Drawing.Size(94, 13);
+			this.updatesLink.Size = new System.Drawing.Size(103, 15);
 			this.updatesLink.TabIndex = 35;
 			this.updatesLink.TabStop = true;
 			this.updatesLink.Text = "Check for updates";
@@ -175,10 +178,10 @@
 			// issuesLink
 			// 
 			this.issuesLink.AutoSize = true;
-			this.issuesLink.Location = new System.Drawing.Point(143, 26);
+			this.issuesLink.Location = new System.Drawing.Point(158, 29);
 			this.issuesLink.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
 			this.issuesLink.Name = "issuesLink";
-			this.issuesLink.Size = new System.Drawing.Size(37, 13);
+			this.issuesLink.Size = new System.Drawing.Size(38, 15);
 			this.issuesLink.TabIndex = 34;
 			this.issuesLink.TabStop = true;
 			this.issuesLink.Text = "Issues";
@@ -189,10 +192,10 @@
 			this.pagesGroup.Controls.Add(this.developerLink);
 			this.pagesGroup.Controls.Add(this.projectLink);
 			this.pagesGroup.Controls.Add(this.issuesLink);
-			this.pagesGroup.Location = new System.Drawing.Point(9, 291);
+			this.pagesGroup.Location = new System.Drawing.Point(9, 340);
 			this.pagesGroup.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
 			this.pagesGroup.Name = "pagesGroup";
-			this.pagesGroup.Size = new System.Drawing.Size(256, 58);
+			this.pagesGroup.Size = new System.Drawing.Size(256, 60);
 			this.pagesGroup.TabIndex = 37;
 			this.pagesGroup.TabStop = false;
 			this.pagesGroup.Text = "Links";
@@ -202,11 +205,12 @@
 			this.AcceptButton = this.okButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.ClientSize = new System.Drawing.Size(274, 389);
+			this.ClientSize = new System.Drawing.Size(274, 440);
 			this.Controls.Add(this.pagesGroup);
 			this.Controls.Add(this.infoGroup);
 			this.Controls.Add(this.okButton);
 			this.Controls.Add(this.logoPictureBox);
+			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.KeyPreview = true;
 			this.MaximizeBox = false;

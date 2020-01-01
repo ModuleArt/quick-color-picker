@@ -82,19 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EFE069039AD4B6DA733D547CDD64B8C8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B4642CAD627F9383DFD215DD66BB57C8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_737284792620041AA725AC471B11769A"
+        "OwnerKey" = "8:_AB402BA3D08386C004B3D13444827BC5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -106,7 +94,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AB402BA3D08386C004B3D13444827BC5"
+        "OwnerKey" = "8:_737284792620041AA725AC471B11769A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B4642CAD627F9383DFD215DD66BB57C8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EFE069039AD4B6DA733D547CDD64B8C8"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -251,11 +251,6 @@
             "AssemblyAsmDisplayName" = "8:Octokit, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_737284792620041AA725AC471B11769A"
-                    {
-                    "Name" = "8:Octokit.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Octokit.dll"
             "TargetName" = "8:"
@@ -282,11 +277,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_AB402BA3D08386C004B3D13444827BC5"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -313,11 +303,6 @@
             "AssemblyAsmDisplayName" = "8:Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B4642CAD627F9383DFD215DD66BB57C8"
-                    {
-                    "Name" = "8:Semver.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Semver.dll"
             "TargetName" = "8:"
@@ -375,11 +360,6 @@
             "AssemblyAsmDisplayName" = "8:GitHubUpdate, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EFE069039AD4B6DA733D547CDD64B8C8"
-                    {
-                    "Name" = "8:GitHubUpdate.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:GitHubUpdate.dll"
             "TargetName" = "8:"
@@ -455,15 +435,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Quick Color Picker"
-        "ProductCode" = "8:{4E25DB7F-8ECD-4C69-8228-731B26BCD98E}"
-        "PackageCode" = "8:{D6C7937A-DF58-4B1F-BBAE-55575C180D8C}"
+        "ProductCode" = "8:{39B0DA17-ED06-4546-89D8-E055AF0CE53D}"
+        "PackageCode" = "8:{499313E6-1C46-402C-9251-0293A2C7A1B9}"
         "UpgradeCode" = "8:{B447EAAB-B636-490E-8AC4-266A6136D6BF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:Module Art"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

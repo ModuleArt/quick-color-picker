@@ -18,9 +18,28 @@ namespace quick_color_picker
 		private bool alwaysOnTop = true;
 		private bool anotherFormat = false;
 
+		private enum KeyModifier
+		{
+			None = 0,
+			Alt = 1,
+			Control = 2,
+			Shift = 4,
+			WinKey = 8
+		}
+
 		public MainForm()
 		{
 			InitializeComponent();
+
+			copyTooltip.SetToolTip(rgbCopyButton, "Copy value");
+			copyTooltip.SetToolTip(htmlCopyButton, "Copy value");
+			copyTooltip.SetToolTip(cmykCopyButton, "Copy value");
+			copyTooltip.SetToolTip(hslCopyButton, "Copy value");
+			copyTooltip.SetToolTip(rgbOneCopyButton, "Copy value");
+			copyTooltip.SetToolTip(hsvCopyButton, "Copy value");
+
+			setAlwaysOnTop(Properties.Settings.Default.AlwaysOnTop, false);
+			setAnotherFormat(Properties.Settings.Default.AnotherFormat, false);
 		}
 
 		private void CaptureScreen()
@@ -102,15 +121,6 @@ namespace quick_color_picker
 			checkForUpdates(false);
 		}
 
-		enum KeyModifier
-		{
-			None = 0,
-			Alt = 1,
-			Control = 2,
-			Shift = 4,
-			WinKey = 8
-		}
-
 		protected override void WndProc(ref Message m)
 		{
 			base.WndProc(ref m);
@@ -146,7 +156,7 @@ namespace quick_color_picker
 		{
 			try
 			{
-				textToColor(s);
+				ColorManager.TextToColor(s);
 				colorList.Items.Add(s);
 			}
 			catch
@@ -168,7 +178,7 @@ namespace quick_color_picker
 				{
 					Graphics g = e.Graphics;
 
-					Color c = textToColor(itemText);
+					Color c = ColorManager.TextToColor(itemText);
 
 					// Background color
 					SolidBrush backgroundColorBrush = new SolidBrush(c);
@@ -212,11 +222,12 @@ namespace quick_color_picker
 				deleteButton.Enabled = true;
 
 				string t = colorList.Items[colorList.SelectedIndex].ToString();
-				Color c = textToColor(t);
+				Color c = ColorManager.TextToColor(t);
 
 				string htmlText = ColorTranslator.ToHtml(c).ToString();
-				int[] cmyk = RgbToCmyk(c.R, c.G, c.B);
-				int[] hsl = ColorToHsl(c);
+				int[] cmyk = ColorManager.ColorToCMYK(c);
+				int[] hsl = ColorManager.ColorToHSL(c);
+				int[] hsv = ColorManager.ColorToHSV(c);
 
 				double rOne = c.R / (double)255;
 				double gOne = c.G / (double)255;
@@ -229,6 +240,7 @@ namespace quick_color_picker
 					cmykTextBox.Text = "cmyk(" + cmyk[0] + "%, " + cmyk[1] + "%, " + cmyk[2] + "%, " + cmyk[3] + "%)";
 					hslTextBox.Text = "hsl(" + hsl[0] + ", " + hsl[1] + "%, " + hsl[2] + "%)";
 					rgbOneTextBox.Text = rOne.ToString("0.####") + " / " + gOne.ToString("0.####") + " / " + bOne.ToString("0.####");
+					hsvTextBox.Text = hsv[0] + "°, " + hsv[1] + "%, " + hsv[2] + "%";
 				}
 				else
 				{
@@ -237,9 +249,11 @@ namespace quick_color_picker
 					cmykTextBox.Text = cmyk[0] + ", " + cmyk[1] + ", " + cmyk[2] + ", " + cmyk[3];
 					hslTextBox.Text = hsl[0] + ", " + hsl[1] + ", " + hsl[2];
 					rgbOneTextBox.Text = rOne.ToString("0.##") + "; " + gOne.ToString("0.##") + "; " + bOne.ToString("0.##");
+					hsvTextBox.Text = hsv[0] + ", " + hsv[1] + ", " + hsv[2];
 				}
 
 				gradPanel.BackColor = c;
+				ratioPanel.BackColor = c;
 
 				int r1 = c.R - 50;
 				int g1 = c.G - 50;
@@ -301,53 +315,6 @@ namespace quick_color_picker
 			colorList.Refresh();
 		}
 
-		private Color textToColor(string text)
-		{
-			string[] strArr = text.Split(',');
-			int[] arr = Array.ConvertAll(strArr, s => int.Parse(s));
-			return Color.FromArgb(arr[0], arr[1], arr[2]);
-		}
-
-		private int[] RgbToCmyk(int intR, int intG, int intB)
-		{
-			double c, m, y, k;
-			double r = intR, g = intG, b = intB;
-			double r1 = r / 255, g1 = g / 255, b1 = b / 255;
-
-			k = 1 - Math.Max(Math.Max(r1, g1), b1);
-
-			if (k == 1)
-			{
-				return new int[] { 0, 0, 0, 1 };
-			}
-			else
-			{
-				c = (1 - r1 - k) / (1 - k);
-				m = (1 - g1 - k) / (1 - k);
-				y = (1 - b1 - k) / (1 - k);
-
-				int intC = Convert.ToInt32(c * 100);
-				int intM = Convert.ToInt32(m * 100);
-				int intY = Convert.ToInt32(y * 100);
-				int intK = Convert.ToInt32(k * 100);
-
-				return new int[] { intC, intM, intY, intK };
-			}
-		}
-
-		private int[] ColorToHsl(Color color)
-		{
-			float hue = color.GetHue();
-			float saturation = color.GetSaturation();
-			float lightness = color.GetBrightness();
-
-			int intHue = Convert.ToInt32(hue);
-			int intSaturation = Convert.ToInt32(saturation * 100);
-			int intLightness = Convert.ToInt32(lightness * 100);
-
-			return new int[] { intHue, intSaturation, intLightness }; 
-		}
-
 		private void rgbCopyButton_Click(object sender, EventArgs e)
 		{
 			Clipboard.SetText(rgbTextBox.Text);
@@ -385,11 +352,15 @@ namespace quick_color_picker
 			rgbOneTextBox.BackColor = ThemeManager.SecondColorDark;
 			rgbOneTextBox.ForeColor = Color.White;
 
+			hsvTextBox.BackColor = ThemeManager.SecondColorDark;
+			hsvTextBox.ForeColor = Color.White;
+
 			rgbCopyButton.Image = Properties.Resources.white_copy;
 			htmlCopyButton.Image = Properties.Resources.white_copy;
 			cmykCopyButton.Image = Properties.Resources.white_copy;
 			hslCopyButton.Image = Properties.Resources.white_copy;
 			rgbOneCopyButton.Image = Properties.Resources.white_copy;
+			hsvCopyButton.Image = Properties.Resources.white_copy;
 
 			onTopButton.Image = Properties.Resources.white_ontop;
 			clearListButton.Image = Properties.Resources.white_broom;
@@ -410,17 +381,23 @@ namespace quick_color_picker
 
 		private void onTopButton_Click(object sender, EventArgs e)
 		{
-			setAlwaysOnTop(!alwaysOnTop);
+			setAlwaysOnTop(!alwaysOnTop, true);
 		}
 
-		private void setAlwaysOnTop(bool b)
+		private void setAlwaysOnTop(bool b, bool saveToDisk)
 		{
 			alwaysOnTop = b;
 			this.TopMost = b;
 			onTopButton.Checked = b;
+
+			if (saveToDisk)
+			{
+				Properties.Settings.Default.AlwaysOnTop = b;
+				Properties.Settings.Default.Save();
+			}
 		}
 
-		private void setAnotherFormat(bool b)
+		private void setAnotherFormat(bool b, bool saveToDisk)
 		{
 			anotherFormat = b;
 			formatButton.Checked = b;
@@ -428,6 +405,12 @@ namespace quick_color_picker
 			if (colorList.SelectedIndex != -1)
 			{
 				colorList.SetSelected(colorList.SelectedIndex, true);
+			}
+
+			if (saveToDisk)
+			{
+				Properties.Settings.Default.AnotherFormat = b;
+				Properties.Settings.Default.Save();
 			}
 		}
 
@@ -465,6 +448,7 @@ namespace quick_color_picker
 		{
 			colorList.Items.Clear();
 			SaveColorList();
+			deleteButton.Enabled = false;
 		}
 
 		private void deleteButton_Click(object sender, EventArgs e)
@@ -600,7 +584,12 @@ namespace quick_color_picker
 
 		private void formatButton_Click(object sender, EventArgs e)
 		{
-			setAnotherFormat(!anotherFormat);
+			setAnotherFormat(!anotherFormat, true);
+		}
+
+		private void hsvCopyButton_Click(object sender, EventArgs e)
+		{
+			Clipboard.SetText(hsvTextBox.Text);
 		}
 	}
 }
