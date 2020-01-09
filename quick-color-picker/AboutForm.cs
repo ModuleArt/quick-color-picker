@@ -28,6 +28,7 @@ namespace quick_color_picker
 				developerLink.LinkColor = linkColor;
 				projectLink.LinkColor = linkColor;
 				issuesLink.LinkColor = linkColor;
+				licenseLink.LinkColor = linkColor;
 
 				okButton.BackColor = ThemeManager.SecondColorDark;
 			}
@@ -61,6 +62,11 @@ namespace quick_color_picker
 			{
 				this.Close();
 			}
+		}
+
+		private void licenseLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			System.Diagnostics.Process.Start("https://github.com/ModuleArt/quick-color-picker/blob/master/LICENSE.md/");
 		}
 	}
 }

@@ -1,9 +1,6 @@
-﻿using GitHubUpdate;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -332,6 +329,8 @@ namespace quick_color_picker
 
 		private void applyDarkTheme()
 		{
+			ThemeManager.setDarkModeToControl(colorList.Handle);
+
 			this.BackColor = ThemeManager.BackColorDark;
 			this.ForeColor = Color.White;
 			toolStrip1.BackColor = ThemeManager.BackColorDark;
@@ -497,11 +496,11 @@ namespace quick_color_picker
 		{
 			try
 			{
-				var checker = new UpdateChecker("ModuleArt", "quick-color-picker");
+				UpdateChecker checker = new UpdateChecker("ModuleArt", "quick-color-picker");
 
-				UpdateType update = await checker.CheckUpdate();
+				bool update = await checker.CheckUpdate();
 
-				if (update == UpdateType.None)
+				if (update == false)
 				{
 					if (showUpToDateDialog)
 					{
@@ -510,10 +509,22 @@ namespace quick_color_picker
 				}
 				else
 				{
-					var result = new UpdateNotifyDialog(checker).ShowDialog();
+					UpdateForm updateDialog = new UpdateForm(checker, "Quick Picture Viewer");
+
+					if (alwaysOnTop)
+					{
+						updateDialog.TopMost = true;
+					}
+
+					var result = updateDialog.ShowDialog();
 					if (result == DialogResult.Yes)
 					{
 						checker.DownloadAsset("QuickColorPicker-Setup.msi");
+						this.Close();
+					}
+					else
+					{
+						updateDialog.Dispose();
 					}
 				}
 			}
@@ -531,19 +542,16 @@ namespace quick_color_picker
 			try
 			{
 				string path = "color-list.txt";
+				FileInfo fi1 = new FileInfo(path);
 
-				if (!File.Exists(path))
+				using (StreamWriter sw = fi1.CreateText())
 				{
-					File.Create(path);
+					string[] linesToWrite = new string[colorList.Items.Count];
+					for (int i = 0; i < colorList.Items.Count; i++)
+					{
+						sw.WriteLine(colorList.Items[i].ToString());
+					}
 				}
-
-				string[] linesToWrite = new string[colorList.Items.Count];
-				for (int i = 0; i < colorList.Items.Count; i++)
-				{
-					linesToWrite[i] = colorList.Items[i].ToString();
-				}
-
-				File.WriteAllLines(path, linesToWrite);
 			}
 			catch
 			{

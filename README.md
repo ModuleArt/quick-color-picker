@@ -4,7 +4,7 @@
 <h1 align="center">Quick Color Picker</h1>
 
 <p align="center">
-  Quick Color Picker is a lightweight desktop color picker and color editor utility to get and save colors code quickly for Windows, build on top of WinForms (C#).
+  Quick Color Picker is a lightweight desktop color picker and color editor utility to get and save colors code quickly for Windows, built on top of WinForms (C#).
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 
 <h2 align="center">Install</h2>
 <p align="center">
-  Windows 7, 8.1, 10  |  Size: 0.9 MB | v1.2.0 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.2.0/QuickColorPicker-Setup.msi">Download</a><br>
+  Windows 7, 8.1, 10  |  Size: 1 MB | v1.2.1 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.2.1/QuickColorPicker-Setup.msi">Download</a><br>
   Uses <a href="https://dotnet.microsoft.com/download/dotnet-framework/net472">.Net 4.7.2</a>
 </p>
 
@@ -35,8 +35,8 @@
 
 <h2 align="center">Additional</h2>
 <p align="center">
-  How to <a href="https://winaero.com/blog/enable-dark-title-bars-custom-accent-color-windows-10/">enable dark title bars</a> with custom accent color in Windows 10<br>
-  How to <a href="https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/">uninstall built-in photos app</a> in Windows 10
+  How to <a href="https://www.onmsft.com/how-to/how-to-get-dark-theme-title-bars-in-windows-10-without-changing-your-accent-colour/">enable dark title bars</a> with custom accent color in Windows 10:<br><br>
+  <img src="/docs/darkmode.png">
 </p>
 
 <h2 align="center">Inspirers</h2>

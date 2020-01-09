@@ -67,8 +67,8 @@
 			this.hsvLabel = new System.Windows.Forms.Label();
 			this.hsvCopyButton = new System.Windows.Forms.Button();
 			this.ratioPanel = new System.Windows.Forms.Panel();
-			this.ratioBlackLabel = new System.Windows.Forms.Label();
 			this.ratioWhiteLabel = new System.Windows.Forms.Label();
+			this.ratioBlackLabel = new System.Windows.Forms.Label();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.ratioPanel.SuspendLayout();
@@ -517,19 +517,6 @@
 			this.ratioPanel.Size = new System.Drawing.Size(120, 33);
 			this.ratioPanel.TabIndex = 32;
 			// 
-			// ratioBlackLabel
-			// 
-			this.ratioBlackLabel.AutoSize = true;
-			this.ratioBlackLabel.BackColor = System.Drawing.Color.Transparent;
-			this.ratioBlackLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.ratioBlackLabel.ForeColor = System.Drawing.Color.Black;
-			this.ratioBlackLabel.Location = new System.Drawing.Point(13, 8);
-			this.ratioBlackLabel.Margin = new System.Windows.Forms.Padding(3);
-			this.ratioBlackLabel.Name = "ratioBlackLabel";
-			this.ratioBlackLabel.Size = new System.Drawing.Size(37, 15);
-			this.ratioBlackLabel.TabIndex = 33;
-			this.ratioBlackLabel.Text = "Black";
-			// 
 			// ratioWhiteLabel
 			// 
 			this.ratioWhiteLabel.AutoSize = true;
@@ -542,6 +529,19 @@
 			this.ratioWhiteLabel.Size = new System.Drawing.Size(41, 15);
 			this.ratioWhiteLabel.TabIndex = 34;
 			this.ratioWhiteLabel.Text = "White";
+			// 
+			// ratioBlackLabel
+			// 
+			this.ratioBlackLabel.AutoSize = true;
+			this.ratioBlackLabel.BackColor = System.Drawing.Color.Transparent;
+			this.ratioBlackLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ratioBlackLabel.ForeColor = System.Drawing.Color.Black;
+			this.ratioBlackLabel.Location = new System.Drawing.Point(13, 8);
+			this.ratioBlackLabel.Margin = new System.Windows.Forms.Padding(3);
+			this.ratioBlackLabel.Name = "ratioBlackLabel";
+			this.ratioBlackLabel.Size = new System.Drawing.Size(37, 15);
+			this.ratioBlackLabel.TabIndex = 33;
+			this.ratioBlackLabel.Text = "Black";
 			// 
 			// MainForm
 			// 

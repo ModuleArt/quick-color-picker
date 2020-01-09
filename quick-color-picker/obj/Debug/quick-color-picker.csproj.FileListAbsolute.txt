@@ -7,8 +7,6 @@ D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick-color-p
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick-color-picker.exe
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick-color-picker.pdb
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick_color_picker.MainForm.resources
-D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Debug\GitHubUpdate.dll
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Debug\Octokit.dll
-D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Debug\Semver.dll
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick_color_picker.AboutForm.resources
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick-color-picker.csproj.CopyComplete

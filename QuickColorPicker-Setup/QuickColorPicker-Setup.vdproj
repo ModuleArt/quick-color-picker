@@ -28,30 +28,18 @@
         "Entry"
         {
         "MsmKey" = "8:_737284792620041AA725AC471B11769A"
-        "OwnerKey" = "8:_EFE069039AD4B6DA733D547CDD64B8C8"
+        "OwnerKey" = "8:_E929A9F44EE84118A9055D6931B25A82"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_737284792620041AA725AC471B11769A"
-        "OwnerKey" = "8:_E929A9F44EE84118A9055D6931B25A82"
+        "MsmKey" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_AB402BA3D08386C004B3D13444827BC5"
-        "OwnerKey" = "8:_E929A9F44EE84118A9055D6931B25A82"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B4642CAD627F9383DFD215DD66BB57C8"
-        "OwnerKey" = "8:_EFE069039AD4B6DA733D547CDD64B8C8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B4642CAD627F9383DFD215DD66BB57C8"
         "OwnerKey" = "8:_E929A9F44EE84118A9055D6931B25A82"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -69,26 +57,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EFE069039AD4B6DA733D547CDD64B8C8"
-        "OwnerKey" = "8:_E929A9F44EE84118A9055D6931B25A82"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E929A9F44EE84118A9055D6931B25A82"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AB402BA3D08386C004B3D13444827BC5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BF57E0CBB28BCA74671101FE09DC693E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,13 +70,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B4642CAD627F9383DFD215DD66BB57C8"
+        "OwnerKey" = "8:_BF57E0CBB28BCA74671101FE09DC693E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EFE069039AD4B6DA733D547CDD64B8C8"
+        "OwnerKey" = "8:_AB402BA3D08386C004B3D13444827BC5"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -251,6 +221,11 @@
             "AssemblyAsmDisplayName" = "8:Octokit, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_737284792620041AA725AC471B11769A"
+                    {
+                    "Name" = "8:Octokit.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Octokit.dll"
             "TargetName" = "8:"
@@ -270,16 +245,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AB402BA3D08386C004B3D13444827BC5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AA92DBA4DADE448D8D452BCE30C28B20"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\quick-color-picker\\resources\\imgs\\install-header.bmp"
+            "TargetName" = "8:install-header.bmp"
             "Tag" = "8:"
             "Folder" = "8:_4E105E1FB7D74141BA826FE0A8CC7FE5"
             "Condition" = "8:"
@@ -292,19 +261,24 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B4642CAD627F9383DFD215DD66BB57C8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AB402BA3D08386C004B3D13444827BC5"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_AB402BA3D08386C004B3D13444827BC5"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:Semver.dll"
+            "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4E105E1FB7D74141BA826FE0A8CC7FE5"
@@ -336,32 +310,6 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4E105E1FB7D74141BA826FE0A8CC7FE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EFE069039AD4B6DA733D547CDD64B8C8"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GitHubUpdate, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:GitHubUpdate.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4E105E1FB7D74141BA826FE0A8CC7FE5"
@@ -435,15 +383,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Quick Color Picker"
-        "ProductCode" = "8:{39B0DA17-ED06-4546-89D8-E055AF0CE53D}"
-        "PackageCode" = "8:{499313E6-1C46-402C-9251-0293A2C7A1B9}"
+        "ProductCode" = "8:{B9F52475-2E86-4166-BB34-FF96E1067878}"
+        "PackageCode" = "8:{D7762BF7-0AF5-447E-8AF8-3FB540142975}"
         "UpgradeCode" = "8:{B447EAAB-B636-490E-8AC4-266A6136D6BF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.2.0"
+        "ProductVersion" = "8:1.2.1"
         "Manufacturer" = "8:Module Art"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -617,7 +565,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -661,7 +610,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -705,7 +655,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -716,8 +667,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1202"
+                            "Setting" = "3:2"
+                            "Value" = "8:Copyright © 2019 ModuleArt"
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -753,7 +704,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -775,7 +727,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -812,7 +765,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "UpdateText"
@@ -856,7 +810,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "InstallAllUsersVisible"
@@ -891,7 +846,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -902,8 +858,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1202"
+                            "Setting" = "3:2"
+                            "Value" = "8:Copyright © 2019 ModuleArt"
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -939,7 +895,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -970,7 +927,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_AA92DBA4DADE448D8D452BCE30C28B20"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
