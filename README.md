@@ -22,7 +22,7 @@
 
 <h2 align="center">Install</h2>
 <p align="center">
-  Windows 7, 8.1, 10  |  Size: 1 MB | v1.2.1 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.2.1/QuickColorPicker-Setup.msi">Download</a><br>
+  Windows 7, 8.1, 10  |  Size: 1 MB | v1.2.2 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.2.2/QuickColorPicker-Setup.msi">Download</a><br>
   Uses <a href="https://dotnet.microsoft.com/download/dotnet-framework/net472">.Net 4.7.2</a>
 </p>
 
