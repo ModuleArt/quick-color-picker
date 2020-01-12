@@ -167,7 +167,7 @@
 			this.colorList.Location = new System.Drawing.Point(325, 41);
 			this.colorList.Margin = new System.Windows.Forms.Padding(0);
 			this.colorList.Name = "colorList";
-			this.colorList.Size = new System.Drawing.Size(130, 257);
+			this.colorList.Size = new System.Drawing.Size(135, 257);
 			this.colorList.TabIndex = 1;
 			this.colorList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.colorList_DrawItem);
 			this.colorList.SelectedIndexChanged += new System.EventHandler(this.colorList_SelectedIndexChanged);
@@ -266,7 +266,7 @@
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Padding = new System.Windows.Forms.Padding(5);
 			this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.toolStrip1.Size = new System.Drawing.Size(144, 35);
+			this.toolStrip1.Size = new System.Drawing.Size(149, 35);
 			this.toolStrip1.TabIndex = 24;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -547,7 +547,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.ClientSize = new System.Drawing.Size(464, 307);
+			this.ClientSize = new System.Drawing.Size(469, 307);
 			this.Controls.Add(this.ratioPanel);
 			this.Controls.Add(this.hsvCopyButton);
 			this.Controls.Add(this.hsvTextBox);

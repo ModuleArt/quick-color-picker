@@ -31,6 +31,8 @@ namespace quick_color_picker
 				licenseLink.LinkColor = linkColor;
 
 				okButton.BackColor = ThemeManager.SecondColorDark;
+
+				ThemeManager.enableDarkTitlebar(this.Handle, true);
 			}
 		}
 

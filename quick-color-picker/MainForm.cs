@@ -366,6 +366,8 @@ namespace quick_color_picker
 			deleteButton.Image = Properties.Resources.white_trash;
 			formatButton.Image = Properties.Resources.white_format;
 			aboutButton.Image = Properties.Resources.white_about;
+
+			ThemeManager.enableDarkTitlebar(this.Handle, true);
 		}
 
 		private void hslCopyButton_Click(object sender, EventArgs e)
@@ -541,10 +543,18 @@ namespace quick_color_picker
 		{
 			try
 			{
-				string path = "color-list.txt";
-				FileInfo fi1 = new FileInfo(path);
+				string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Quick Color Picker");
+				DirectoryInfo di = new DirectoryInfo(appDataFolder);
 
-				using (StreamWriter sw = fi1.CreateText())
+				if (!di.Exists)
+				{
+					di.Create();
+				}
+
+				string path = Path.Combine(appDataFolder, "color-list.txt");
+				FileInfo fi = new FileInfo(path);
+
+				using (StreamWriter sw = fi.CreateText())
 				{
 					string[] linesToWrite = new string[colorList.Items.Count];
 					for (int i = 0; i < colorList.Items.Count; i++)
@@ -563,7 +573,13 @@ namespace quick_color_picker
 		{
 			try
 			{
-				string[] lines = File.ReadAllLines("color-list.txt");
+				string path = Path.Combine(
+					Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), 
+					"Quick Color Picker",
+					"color-list.txt"
+				);
+
+				string[] lines = File.ReadAllLines(path);
 
 				for (int i = 0; i < lines.Length; i++)
 				{

@@ -13,6 +13,8 @@ namespace quick_color_picker
 				SetProcessDPIAware();
 			}
 
+			ThemeManager.allowDarkModeForApp(true);
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainForm());

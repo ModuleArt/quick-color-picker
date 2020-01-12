@@ -29,6 +29,8 @@ namespace quick_color_picker
 				buttonYes.BackColor = ThemeManager.SecondColorDark;
 				buttonNo.BackColor = ThemeManager.SecondColorDark;
 				boxReleaseNotes.BackColor = ThemeManager.SecondColorDark;
+
+				ThemeManager.enableDarkTitlebar(this.Handle, true);
 			}
 		}
 
