@@ -46,5 +46,6 @@
 
 <h2 align="center">Other "Quick" apps</h2>
 <p align="center">
-  <a href="https://github.com/ModuleArt/quick-picture-viewer/">Quick Picture Viewer</a> - Lightweight desktop photo viewer for Windows
+  <a href="https://github.com/ModuleArt/quick-picture-viewer/">Quick Picture Viewer</a> - Lightweight desktop photo viewer for Windows<br>
+<a href="https://github.com/ModuleArt/quick-music-player/">Quick Music Player</a> - Lightweight desktop audio player for Windows
 </p>
