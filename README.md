@@ -46,5 +46,5 @@
 
 <h2 align="center">Other "Quick" apps</h2>
 <p align="center">
-  <a href="https://github.com/ModuleArt/quick-picture-viewer/">Quick Picture Viewer</a> - A photo viewer
+  <a href="https://github.com/ModuleArt/quick-picture-viewer/">Quick Picture Viewer</a> - Lightweight desktop photo viewer for Windows
 </p>
