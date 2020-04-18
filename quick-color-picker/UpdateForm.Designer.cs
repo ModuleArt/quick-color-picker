@@ -46,12 +46,12 @@
 			this.buttonNo.FlatAppearance.BorderSize = 0;
 			this.buttonNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonNo.Location = new System.Drawing.Point(206, 108);
+			this.buttonNo.Location = new System.Drawing.Point(290, 108);
 			this.buttonNo.Margin = new System.Windows.Forms.Padding(0);
 			this.buttonNo.Name = "buttonNo";
 			this.buttonNo.Size = new System.Drawing.Size(75, 23);
 			this.buttonNo.TabIndex = 2;
-			this.buttonNo.Text = "No";
+			this.buttonNo.Text = "Close";
 			this.buttonNo.UseVisualStyleBackColor = false;
 			// 
 			// buttonYes
@@ -62,12 +62,12 @@
 			this.buttonYes.FlatAppearance.BorderSize = 0;
 			this.buttonYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonYes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonYes.Location = new System.Drawing.Point(290, 108);
+			this.buttonYes.Location = new System.Drawing.Point(205, 108);
 			this.buttonYes.Margin = new System.Windows.Forms.Padding(0);
 			this.buttonYes.Name = "buttonYes";
 			this.buttonYes.Size = new System.Drawing.Size(75, 23);
 			this.buttonYes.TabIndex = 1;
-			this.buttonYes.Text = "Yes";
+			this.buttonYes.Text = "Download";
 			this.buttonYes.UseVisualStyleBackColor = false;
 			// 
 			// label1
@@ -171,11 +171,13 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.KeyPreview = true;
 			this.MinimumSize = new System.Drawing.Size(320, 39);
 			this.Name = "UpdateForm";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Update available!";
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UpdateForm_KeyDown);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,9 +13,10 @@ namespace quick_color_picker
 	{
 		private Pen aimPen = new Pen(Color.Red, 1);
 		private Color aimColor;
-		private bool darkMode = false;
 		private bool alwaysOnTop = true;
 		private bool anotherFormat = false;
+		private bool darkMode;
+		private List<string> colors = new List<string>();
 
 		private enum KeyModifier
 		{
@@ -24,8 +27,15 @@ namespace quick_color_picker
 			WinKey = 8
 		}
 
-		public MainForm()
+		public MainForm(bool darkMode)
 		{
+			this.darkMode = darkMode;
+
+			if (darkMode)
+			{
+				this.HandleCreated += new EventHandler(ThemeManager.formHandleCreated);
+			}
+
 			InitializeComponent();
 
 			copyTooltip.SetToolTip(rgbCopyButton, "Copy value");
@@ -34,9 +44,17 @@ namespace quick_color_picker
 			copyTooltip.SetToolTip(hslCopyButton, "Copy value");
 			copyTooltip.SetToolTip(rgbOneCopyButton, "Copy value");
 			copyTooltip.SetToolTip(hsvCopyButton, "Copy value");
+			copyTooltip.SetToolTip(renameButton, "Rename selected color");
 
-			setAlwaysOnTop(Properties.Settings.Default.AlwaysOnTop, false);
-			setAnotherFormat(Properties.Settings.Default.AnotherFormat, false);
+			toolStrip1.Renderer = new ToolStripOverride();
+
+			renameTextBox.AutoSize = false;
+			renameTextBox.Height = 20;
+
+			if (darkMode)
+			{
+				applyDarkTheme();
+			}
 		}
 
 		private void CaptureScreen()
@@ -64,19 +82,24 @@ namespace quick_color_picker
 
 					scaledBmp.Dispose();
 
-					if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
+					if (aimPictureBox.Image != null) aimPictureBox.Image.Dispose();
 
-					pictureBox1.Image = bmp;
+					aimPictureBox.Image = bmp;
 
-					aimColor = bmp.GetPixel(pictureBox1.Width / 2, pictureBox1.Height / 2);
+					aimColor = bmp.GetPixel(aimPictureBox.Width / 2, aimPictureBox.Height / 2);
 					colorPanel.BackColor = aimColor;
 
-					g.DrawLine(aimPen, 0, pictureBox1.Height / 2, pictureBox1.Width, pictureBox1.Height / 2);
-					g.DrawLine(aimPen, pictureBox1.Width / 2, 0, pictureBox1.Height / 2, pictureBox1.Height);
+					g.DrawLine(aimPen, 0, aimPictureBox.Height / 2, aimPictureBox.Width, aimPictureBox.Height / 2);
+					g.DrawLine(aimPen, aimPictureBox.Width / 2, 0, aimPictureBox.Height / 2, aimPictureBox.Height);
 				}
 
 				xLabel.Invoke((MethodInvoker)(() => xLabel.Text = "X: " + Cursor.Position.X));
 				yLabel.Invoke((MethodInvoker)(() => yLabel.Text = "Y: " + Cursor.Position.Y));
+
+				rgbStatusLabel.GetCurrentParent().Invoke((MethodInvoker)(() => rgbStatusLabel.Text = "RGB: " + aimColor.R + ", " + aimColor.G + ", " + aimColor.B));
+				hexStatusLabel.GetCurrentParent().Invoke((MethodInvoker)(() => hexStatusLabel.Text = "HEX: " + ColorTranslator.ToHtml(aimColor).ToString()));
+			
+				this.Invoke((MethodInvoker)(() => this.Text = aimColor.R + ", " + aimColor.G + ", " + aimColor.B + " - Quick Color Picker"));
 			}
 			catch
 			{
@@ -93,14 +116,7 @@ namespace quick_color_picker
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			RegisterHotKey(this.Handle, 0, (int) KeyModifier.Alt, Keys.X.GetHashCode());
-
-			toolStrip1.Renderer = new ToolStripOverride();
-
-			darkMode = ThemeManager.isDarkTheme();
-			if (darkMode)
-			{
-				applyDarkTheme();
-			}
+			RegisterHotKey(this.Handle, 1, (int)KeyModifier.Alt, Keys.C.GetHashCode());
 
 			Task task = new Task(() =>
 			{
@@ -116,6 +132,9 @@ namespace quick_color_picker
 			LoadColorList();
 
 			checkForUpdates(false);
+
+			setAlwaysOnTop(Properties.Settings.Default.AlwaysOnTop, false);
+			setAnotherFormat(Properties.Settings.Default.AnotherFormat, false);
 		}
 
 		protected override void WndProc(ref Message m)
@@ -126,9 +145,18 @@ namespace quick_color_picker
 			{
 				Keys key = (Keys)(((int)m.LParam >> 16) & 0xFFFF);             
 				KeyModifier modifier = (KeyModifier)((int)m.LParam & 0xFFFF);  
-				int id = m.WParam.ToInt32();
 
-				GetColor();
+				if (modifier == KeyModifier.Alt)
+				{
+					if (key == Keys.X)
+					{
+						GetColor();
+					}
+					else if (key == Keys.C)
+					{
+						CopyColor();
+					}
+				}
 			}
 		}
 
@@ -137,24 +165,32 @@ namespace quick_color_picker
 			UnregisterHotKey(this.Handle, 0);
 		}
 
+		private void CopyColor()
+		{
+			Clipboard.SetText(this.Text = aimColor.R + ", " + aimColor.G + ", " + aimColor.B);
+		}
+
 		private void GetColor()
 		{
 			AddColor(aimColor);
 			colorList.SetSelected(colorList.Items.Count - 1, true);
 			SaveColorList();
+			SaveColorNames();
 		}
 
 		private void AddColor(Color c)
 		{
+			colors.Add(c.R + ", " + c.G + ", " + c.B);
 			colorList.Items.Add(c.R + ", " + c.G + ", " + c.B);
 		}
 
-		private void AddColor(string s)
+		private void AddColor(string color, string name)
 		{
 			try
 			{
-				ColorManager.TextToColor(s);
-				colorList.Items.Add(s);
+				ColorManager.TextToColor(color);
+				colors.Add(color);
+				colorList.Items.Add(name);
 			}
 			catch
 			{
@@ -170,12 +206,13 @@ namespace quick_color_picker
 
 				int itemIndex = e.Index;
 				string itemText = colorList.Items[itemIndex].ToString();
+				string colorText = colors[itemIndex]; ;
 
 				if (itemIndex >= 0 && itemIndex < colorList.Items.Count)
 				{
 					Graphics g = e.Graphics;
 
-					Color c = ColorManager.TextToColor(itemText);
+					Color c = ColorManager.TextToColor(colorText);
 
 					// Background color
 					SolidBrush backgroundColorBrush = new SolidBrush(c);
@@ -217,8 +254,11 @@ namespace quick_color_picker
 			if (colorList.SelectedIndex != -1)
 			{
 				deleteButton.Enabled = true;
+				renameButton.Enabled = true;
+				renameTextBox.Enabled = true;
+				renameTextBox.Text = colorList.Items[colorList.SelectedIndex].ToString();
 
-				string t = colorList.Items[colorList.SelectedIndex].ToString();
+				string t = colors[colorList.SelectedIndex];
 				Color c = ColorManager.TextToColor(t);
 
 				string htmlText = ColorTranslator.ToHtml(c).ToString();
@@ -303,10 +343,15 @@ namespace quick_color_picker
 				}
 
 				gradPanel4.BackColor = Color.FromArgb(r4, g4, b4);
+
+				CreateLinearGradient(gradPanel1.BackColor, gradPanel.BackColor, gradPanel4.BackColor);
 			}
 			else
 			{
 				deleteButton.Enabled = false;
+				renameButton.Enabled = false;
+				renameTextBox.Enabled = false;
+				renameTextBox.Text = "";
 			}
 
 			colorList.Refresh();
@@ -335,6 +380,7 @@ namespace quick_color_picker
 			this.ForeColor = Color.White;
 			toolStrip1.BackColor = ThemeManager.BackColorDark;
 			colorList.BackColor = ThemeManager.SecondColorDark;
+			statusStrip1.BackColor = ThemeManager.SecondColorDark;
 
 			rgbTextBox.BackColor = ThemeManager.SecondColorDark;
 			rgbTextBox.ForeColor = Color.White;
@@ -367,7 +413,9 @@ namespace quick_color_picker
 			formatButton.Image = Properties.Resources.white_format;
 			aboutButton.Image = Properties.Resources.white_about;
 
-			ThemeManager.enableDarkTitlebar(this.Handle, true);
+			renameTextBox.BackColor = ThemeManager.SecondColorDark;
+			renameTextBox.ForeColor = Color.White;
+			renameButton.Image = Properties.Resources.white_rename;
 		}
 
 		private void hslCopyButton_Click(object sender, EventArgs e)
@@ -447,9 +495,14 @@ namespace quick_color_picker
 
 		private void clearListButton_Click(object sender, EventArgs e)
 		{
+			colors.Clear();
 			colorList.Items.Clear();
 			SaveColorList();
+			SaveColorNames();
 			deleteButton.Enabled = false;
+			renameButton.Enabled = false;
+			renameTextBox.Enabled = false;
+			renameTextBox.Text = "";
 		}
 
 		private void deleteButton_Click(object sender, EventArgs e)
@@ -458,6 +511,7 @@ namespace quick_color_picker
 			{
 				int curIndex = colorList.SelectedIndex;
 				colorList.Items.RemoveAt(curIndex);
+				colors.RemoveAt(curIndex);
 
 				if (colorList.Items.Count > 0)
 				{
@@ -472,12 +526,13 @@ namespace quick_color_picker
 				}
 
 				SaveColorList();
+				SaveColorNames();
 			}
 		}
 
 		private void aboutButton_Click(object sender, EventArgs e)
 		{
-			AboutForm aboutBox = new AboutForm();
+			AboutForm aboutBox = new AboutForm(darkMode);
 			aboutBox.Owner = this;
 			if (alwaysOnTop)
 			{
@@ -511,18 +566,23 @@ namespace quick_color_picker
 				}
 				else
 				{
-					UpdateForm updateDialog = new UpdateForm(checker, "Quick Picture Viewer");
+					UpdateForm updateDialog = new UpdateForm(checker, "Quick Color Picker", darkMode);
 
 					if (alwaysOnTop)
 					{
 						updateDialog.TopMost = true;
 					}
 
-					var result = updateDialog.ShowDialog();
+					DialogResult result = updateDialog.ShowDialog();
 					if (result == DialogResult.Yes)
 					{
-						checker.DownloadAsset("QuickColorPicker-Setup.msi");
-						this.Close();
+						DownloadForm downloadBox = new DownloadForm(checker.GetAssetUrl("QuickColorPicker-Setup.msi"), darkMode);
+						downloadBox.Owner = this;
+						if (alwaysOnTop)
+						{
+							downloadBox.TopMost = true;
+						}
+						downloadBox.ShowDialog();
 					}
 					else
 					{
@@ -551,15 +611,15 @@ namespace quick_color_picker
 					di.Create();
 				}
 
-				string path = Path.Combine(appDataFolder, "color-list.txt");
-				FileInfo fi = new FileInfo(path);
+				string colorListPath = Path.Combine(appDataFolder, "color-list.txt");
+				FileInfo fiColors = new FileInfo(colorListPath);
 
-				using (StreamWriter sw = fi.CreateText())
+				using (StreamWriter sw = fiColors.CreateText())
 				{
-					string[] linesToWrite = new string[colorList.Items.Count];
-					for (int i = 0; i < colorList.Items.Count; i++)
+					string[] linesToWrite = new string[colors.Count];
+					for (int i = 0; i < colors.Count; i++)
 					{
-						sw.WriteLine(colorList.Items[i].ToString());
+						sw.WriteLine(colors[i].ToString());
 					}
 				}
 			}
@@ -569,23 +629,60 @@ namespace quick_color_picker
 			}
 		}
 
+		private void SaveColorNames()
+		{
+			try
+			{
+				string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Quick Color Picker");
+				DirectoryInfo di = new DirectoryInfo(appDataFolder);
+
+				if (!di.Exists)
+				{
+					di.Create();
+				}
+
+				string colorNamesPath = Path.Combine(appDataFolder, "color-names.txt");
+				FileInfo fiNames = new FileInfo(colorNamesPath);
+
+				using (StreamWriter sw = fiNames.CreateText())
+				{
+					string[] linesToWrite = new string[colorList.Items.Count];
+					for (int i = 0; i < colorList.Items.Count; i++)
+					{
+						sw.WriteLine(colorList.Items[i].ToString());
+					}
+				}
+			}
+			catch 
+			{
+
+			}
+		}
+
 		private void LoadColorList()
 		{
 			try
 			{
-				string path = Path.Combine(
-					Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), 
+				string colorListTxt = Path.Combine(
+					Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
 					"Quick Color Picker",
 					"color-list.txt"
 				);
 
-				string[] lines = File.ReadAllLines(path);
+				string colorNamesTxt = Path.Combine(
+					Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+					"Quick Color Picker",
+					"color-names.txt"
+				);
 
-				for (int i = 0; i < lines.Length; i++)
+				string[] colorsLines = File.ReadAllLines(colorListTxt);
+				string[] namesLines = File.ReadAllLines(colorNamesTxt);
+
+				for (int i = 0; i < colorsLines.Length; i++)
 				{
 					try
 					{
-						AddColor(lines[i]);
+						AddColor(colorsLines[i], namesLines[i]);
 					}
 					catch
 					{
@@ -614,6 +711,55 @@ namespace quick_color_picker
 		private void hsvCopyButton_Click(object sender, EventArgs e)
 		{
 			Clipboard.SetText(hsvTextBox.Text);
+		}
+
+		private void renameButton_Click(object sender, EventArgs e)
+		{
+			if (colorList.SelectedIndex != -1)
+			{
+				colorList.Items[colorList.SelectedIndex] = renameTextBox.Text;
+				colorList.Items[colorList.SelectedIndex] = colorList.Items[colorList.SelectedIndex];
+			}
+			SaveColorNames();
+		}
+
+		private void renameTextBox_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				renameButton.PerformClick();
+			}
+		}
+
+		private void CreateLinearGradient(Color from, Color middle, Color to)
+		{
+			Bitmap bmp = new Bitmap(linearGradPictureBox.Width, linearGradPictureBox.Height);
+			Graphics g = Graphics.FromImage(bmp);
+
+			LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
+			   new Point(0, 0),
+			   new Point(bmp.Width, bmp.Height),
+			   from, to
+			);
+
+			ColorBlend cblend = new ColorBlend(3);
+			cblend.Colors = new Color[3] { from, middle, to };
+			cblend.Positions = new float[3] { 0f, 0.5f, 1f };
+
+			linearGradientBrush.InterpolationColors = cblend;
+
+			g.FillRectangle(linearGradientBrush, 0, 0, bmp.Width, bmp.Height);
+
+			linearGradPictureBox.Image = bmp;
+		}
+
+		private void linearGradPictureBox_MouseClick(object sender, MouseEventArgs e)
+		{
+			Bitmap b = new Bitmap(linearGradPictureBox.ClientSize.Width, linearGradPictureBox.Height);
+			linearGradPictureBox.DrawToBitmap(b, linearGradPictureBox.ClientRectangle);
+			Color colour = b.GetPixel(e.Location.X, e.Location.Y);
+
+			AddColor(colour);
 		}
 	}
 }

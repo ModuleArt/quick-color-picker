@@ -17,7 +17,7 @@ namespace quick_color_picker
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			Application.Run(new MainForm(ThemeManager.isDarkTheme()));
 		}
 
 		[System.Runtime.InteropServices.DllImport("user32.dll")]

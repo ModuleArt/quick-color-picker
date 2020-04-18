@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace quick_color_picker
 {
@@ -9,7 +11,7 @@ namespace quick_color_picker
 	{
 		public static Color MainColorDark = Color.Black;
 		public static Color BackColorDark = Color.FromArgb(32, 32, 32);
-		public static Color SecondColorDark = Color.FromArgb(51, 51, 51);
+		public static Color SecondColorDark = Color.FromArgb(56, 56, 56);
 		public static Color AccentColorDark = Color.FromArgb(73, 169, 207);
 
 		private enum WindowCompositionAttribute
@@ -63,15 +65,7 @@ namespace quick_color_picker
 		[DllImport("user32.dll")]
 		private static extern bool SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttribData data);
 
-		[DllImport("user32.dll")]
-		private static extern bool UpdateWindow(IntPtr hWnd);
-
-		public static void allowDarkModeForApp(bool dark)
-		{
-			AllowDarkModeForApp(dark);
-		}
-
-		public static void enableDarkTitlebar(IntPtr handle, bool dark)
+		private static void enableDarkTitlebar(IntPtr handle, bool dark)
 		{
 			AllowDarkModeForWindow(handle, dark);
 
@@ -86,7 +80,18 @@ namespace quick_color_picker
 			};
 			SetWindowCompositionAttribute(handle, ref data);
 
-			UpdateWindow(handle);
+			Marshal.FreeHGlobal(dataPtr);
+		}
+
+		public static void allowDarkModeForApp(bool dark)
+		{
+			AllowDarkModeForApp(dark);
+		}
+
+		public static void formHandleCreated(object sender, EventArgs e)
+		{
+			Form f = sender as Form;
+			enableDarkTitlebar(f.Handle, true);
 		}
 
 		public static void setDarkModeToControl(IntPtr handle)
@@ -98,9 +103,16 @@ namespace quick_color_picker
 		{
 			if (isWindows10())
 			{
-				string root = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize";
-				string str = Registry.GetValue(root, "AppsUseLightTheme", null).ToString();
-				return (str == "0");
+				try
+				{
+					string root = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize";
+					string str = Registry.GetValue(root, "AppsUseLightTheme", null).ToString();
+					return (str == "0");
+				}
+				catch
+				{
+					return false;
+				}
 			}
 			else
 			{
@@ -110,9 +122,34 @@ namespace quick_color_picker
 
 		public static bool isWindows10()
 		{
-			var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
-			string productName = (string)reg.GetValue("ProductName");
-			return productName.StartsWith("Windows 10");
+			try
+			{
+				var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+				string productName = (string)reg.GetValue("ProductName");
+				return productName.StartsWith("Windows 10");
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		public static void PaintDarkGroupBox(object sender, PaintEventArgs p)
+		{
+			GroupBox box = (GroupBox)sender;
+
+			SolidBrush brush = new SolidBrush(ThemeManager.SecondColorDark);
+			Pen pen = new Pen(brush, 1);
+
+			p.Graphics.Clear(ThemeManager.BackColorDark);
+
+			p.Graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
+			p.Graphics.DrawString(box.Text, box.Font, Brushes.White, -1, -3);
+
+			p.Graphics.DrawLine(pen, 0, 16, 0, box.Height - 2);
+			p.Graphics.DrawLine(pen, 0, 16, box.Width - 1, 16);
+			p.Graphics.DrawLine(pen, box.Width - 1, 16, box.Width - 1, box.Height - 2);
+			p.Graphics.DrawLine(pen, 0, box.Height - 2, box.Width - 1, box.Height - 2);
 		}
 	}
 }

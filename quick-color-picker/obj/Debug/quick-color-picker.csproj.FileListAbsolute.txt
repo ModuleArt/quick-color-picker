@@ -10,3 +10,4 @@ D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick_color_p
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\bin\Debug\Octokit.dll
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick_color_picker.AboutForm.resources
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick-color-picker.csproj.CopyComplete
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Debug\quick_color_picker.DownloadForm.resources

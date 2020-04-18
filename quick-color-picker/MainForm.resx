@@ -215,6 +215,17 @@
         W3VLWwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="renameButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAJNJREFUOE/N
+        klEKgkAURacN1G9urAXYYgRbjC2g3fjjV19BiUGe6/jgKSlaPx44vLkw3lGZsHl2WOENT1hgias44hk/
+        /UzwJ1QwyQWfqE3fFH5qb9alnhr3cTmJFYgDvuIy4tu9ntlswR40PbP570/I8Y128ljhZ4ODn7gEK1iN
+        XjdFFWgqL0ZX+YF2la94x80QQgtWuTcMJdaciAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>238, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAYGAAAAEAIAColAAAVgAAAEBAAAABACAAKEIAAP6UAAAwMAAAAQAgAKglAAAm1wAAICAAAAEA

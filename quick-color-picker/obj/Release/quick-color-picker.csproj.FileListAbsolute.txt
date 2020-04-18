@@ -10,3 +10,4 @@ D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.csproj.CopyComplete
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.exe
 D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick-color-picker.pdb
+D:\Projects\DotNet\quick-color-picker\quick-color-picker\obj\Release\quick_color_picker.DownloadForm.resources

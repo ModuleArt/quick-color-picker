@@ -8,19 +8,35 @@ namespace quick_color_picker
 {
 	partial class AboutForm : Form
 	{
-		public AboutForm()
+		public AboutForm(bool darkMode)
 		{
+			if (darkMode)
+			{
+				this.HandleCreated += new EventHandler(ThemeManager.formHandleCreated);
+			}
+
 			InitializeComponent();
 
-			versionLabel.Text = String.Format("Version: {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
+			string fullVer = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+			int lastDotIndex = fullVer.LastIndexOf('.');
+			versionLabel.Text = String.Format("Version: {0}", fullVer.Substring(0, lastDotIndex));
 
-			if (ThemeManager.isDarkTheme())
+			if (IntPtr.Size == 4)
+			{
+				versionLabel.Text += " (x32)";
+			}
+			else if (IntPtr.Size == 8)
+			{
+				versionLabel.Text += " (x64)";
+			}
+
+			if (darkMode)
 			{
 				this.BackColor = ThemeManager.BackColorDark;
 				this.ForeColor = Color.White;
 
-				infoGroup.ForeColor = Color.White;
-				pagesGroup.ForeColor = Color.White;
+				infoGroup.Paint += ThemeManager.PaintDarkGroupBox;
+				pagesGroup.Paint += ThemeManager.PaintDarkGroupBox;
 
 				Color linkColor = ThemeManager.AccentColorDark;
 
@@ -31,8 +47,6 @@ namespace quick_color_picker
 				licenseLink.LinkColor = linkColor;
 
 				okButton.BackColor = ThemeManager.SecondColorDark;
-
-				ThemeManager.enableDarkTitlebar(this.Handle, true);
 			}
 		}
 
@@ -54,8 +68,8 @@ namespace quick_color_picker
 		private void updatesLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			MainForm parent = (MainForm)this.Owner;
-
 			parent.checkForUpdates(true);
+			this.Close();
 		}
 
 		private void AboutForm_KeyDown(object sender, KeyEventArgs e)

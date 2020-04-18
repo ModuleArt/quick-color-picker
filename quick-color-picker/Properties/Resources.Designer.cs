@@ -113,6 +113,16 @@ namespace quick_color_picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap white_rename {
+            get {
+                object obj = ResourceManager.GetObject("white_rename", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap white_trash {
             get {
                 object obj = ResourceManager.GetObject("white-trash", resourceCulture);

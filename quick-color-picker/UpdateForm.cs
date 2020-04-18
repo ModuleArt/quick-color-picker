@@ -9,8 +9,13 @@ namespace quick_color_picker
 		private readonly UpdateChecker _checker;
 		private bool _loadednotes;
 
-		public UpdateForm(UpdateChecker checker, string appName)
+		public UpdateForm(UpdateChecker checker, string appName, bool darkMode)
 		{
+			if (darkMode)
+			{
+				this.HandleCreated += new EventHandler(ThemeManager.formHandleCreated);
+			}
+
 			_checker = checker;
 
 			InitializeComponent();
@@ -21,7 +26,7 @@ namespace quick_color_picker
 			currentLabel.Text = string.Format(currentLabel.Text, _checker.CurrentVersion);
 			latestLabel.Text = string.Format(latestLabel.Text, _checker.LatestRelease.TagName);
 
-			if (ThemeManager.isDarkTheme())
+			if (darkMode)
 			{
 				this.BackColor = ThemeManager.BackColorDark;
 				this.ForeColor = Color.White;
@@ -29,8 +34,6 @@ namespace quick_color_picker
 				buttonYes.BackColor = ThemeManager.SecondColorDark;
 				buttonNo.BackColor = ThemeManager.SecondColorDark;
 				boxReleaseNotes.BackColor = ThemeManager.SecondColorDark;
-
-				ThemeManager.enableDarkTitlebar(this.Handle, true);
 			}
 		}
 
@@ -51,6 +54,14 @@ namespace quick_color_picker
 
 			ReleaseNotes.DocumentText = await _checker.RenderReleaseNotes();
 			_loadednotes = true;
+		}
+
+		private void UpdateForm_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
 		}
 	}
 }

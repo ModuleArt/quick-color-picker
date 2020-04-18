@@ -22,7 +22,7 @@
 
 <h2 align="center">Install</h2>
 <p align="center">
-  Windows 7, 8.1, 10  |  Size: 1 MB | v1.2.2 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.2.2/QuickColorPicker-Setup.msi">Download</a><br>
+  Windows 7, 8.1, 10  |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/tag/v1.3.0">v1.3.0</a> (1 MB) | v1.3.0 |  <a href="https://github.com/ModuleArt/quick-color-picker/releases/download/v1.3.0/QuickColorPicker-Setup.msi">Download</a><br>
   Uses <a href="https://dotnet.microsoft.com/download/dotnet-framework/net472">.Net 4.7.2</a>
 </p>
 
@@ -33,19 +33,12 @@
   <img src="/docs/screenshots/about.png">
 </p>
 
-<h2 align="center">Additional</h2>
+<h2 align="center">Other "Quick" apps</h2>
 <p align="center">
-  How to <a href="https://www.onmsft.com/how-to/how-to-get-dark-theme-title-bars-in-windows-10-without-changing-your-accent-colour/">enable dark title bars</a> with custom accent color in Windows 10:<br><br>
-  <img src="/docs/darkmode.png">
+  <a href="https://github.com/ModuleArt/quick-picture-viewer/">Quick Picture Viewer</a> - Lightweight desktop photo viewer for Windows
 </p>
 
 <h2 align="center">Inspirers</h2>
 <p align="center">
   <a href="https://annystudio.com/software/colorpicker/">Just Color Picker</a> v5.1 by AnnyStudio
-</p>
-
-<h2 align="center">Other "Quick" apps</h2>
-<p align="center">
-  <a href="https://github.com/ModuleArt/quick-picture-viewer/">Quick Picture Viewer</a> - Lightweight desktop photo viewer for Windows<br>
-<a href="https://github.com/ModuleArt/quick-music-player/">Quick Music Player</a> - Lightweight desktop audio player for Windows
 </p>

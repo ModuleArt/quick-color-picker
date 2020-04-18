@@ -47,10 +47,10 @@
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.onTopButton = new System.Windows.Forms.ToolStripButton();
 			this.formatButton = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.clearListButton = new System.Windows.Forms.ToolStripButton();
 			this.deleteButton = new System.Windows.Forms.ToolStripButton();
 			this.aboutButton = new System.Windows.Forms.ToolStripButton();
-			this.label1 = new System.Windows.Forms.Label();
 			this.gradPanel1 = new System.Windows.Forms.Panel();
 			this.gradPanel2 = new System.Windows.Forms.Panel();
 			this.gradPanel3 = new System.Windows.Forms.Panel();
@@ -62,23 +62,33 @@
 			this.cmykCopyButton = new System.Windows.Forms.Button();
 			this.htmlCopyButton = new System.Windows.Forms.Button();
 			this.rgbCopyButton = new System.Windows.Forms.Button();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.aimPictureBox = new System.Windows.Forms.PictureBox();
 			this.hsvTextBox = new System.Windows.Forms.TextBox();
 			this.hsvLabel = new System.Windows.Forms.Label();
 			this.hsvCopyButton = new System.Windows.Forms.Button();
 			this.ratioPanel = new System.Windows.Forms.Panel();
 			this.ratioWhiteLabel = new System.Windows.Forms.Label();
 			this.ratioBlackLabel = new System.Windows.Forms.Label();
+			this.renameTextBox = new System.Windows.Forms.TextBox();
+			this.renameButton = new System.Windows.Forms.Button();
+			this.linearGradPictureBox = new System.Windows.Forms.PictureBox();
+			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.rgbStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.hexStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.pickColorStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.copyColorStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.aimPictureBox)).BeginInit();
 			this.ratioPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.linearGradPictureBox)).BeginInit();
+			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// colorPanel
 			// 
 			this.colorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.colorPanel.Location = new System.Drawing.Point(9, 138);
-			this.colorPanel.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+			this.colorPanel.Location = new System.Drawing.Point(9, 9);
+			this.colorPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.colorPanel.Name = "colorPanel";
 			this.colorPanel.Size = new System.Drawing.Size(40, 40);
 			this.colorPanel.TabIndex = 2;
@@ -93,7 +103,7 @@
 			this.rgbTextBox.Multiline = true;
 			this.rgbTextBox.Name = "rgbTextBox";
 			this.rgbTextBox.ReadOnly = true;
-			this.rgbTextBox.Size = new System.Drawing.Size(153, 20);
+			this.rgbTextBox.Size = new System.Drawing.Size(137, 20);
 			this.rgbTextBox.TabIndex = 3;
 			this.rgbTextBox.Text = "255, 255, 255";
 			this.rgbTextBox.WordWrap = false;
@@ -130,7 +140,7 @@
 			this.htmlTextBox.Multiline = true;
 			this.htmlTextBox.Name = "htmlTextBox";
 			this.htmlTextBox.ReadOnly = true;
-			this.htmlTextBox.Size = new System.Drawing.Size(153, 20);
+			this.htmlTextBox.Size = new System.Drawing.Size(137, 20);
 			this.htmlTextBox.TabIndex = 6;
 			this.htmlTextBox.Text = "#FFFFFF";
 			this.htmlTextBox.WordWrap = false;
@@ -139,7 +149,7 @@
 			// 
 			this.xLabel.AutoSize = true;
 			this.xLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.xLabel.Location = new System.Drawing.Point(55, 141);
+			this.xLabel.Location = new System.Drawing.Point(55, 12);
 			this.xLabel.Margin = new System.Windows.Forms.Padding(13, 13, 13, 3);
 			this.xLabel.Name = "xLabel";
 			this.xLabel.Size = new System.Drawing.Size(26, 15);
@@ -150,7 +160,7 @@
 			// 
 			this.yLabel.AutoSize = true;
 			this.yLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.yLabel.Location = new System.Drawing.Point(55, 160);
+			this.yLabel.Location = new System.Drawing.Point(55, 31);
 			this.yLabel.Margin = new System.Windows.Forms.Padding(3);
 			this.yLabel.Name = "yLabel";
 			this.yLabel.Size = new System.Drawing.Size(26, 15);
@@ -164,10 +174,10 @@
 			this.colorList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.colorList.FormattingEnabled = true;
 			this.colorList.ItemHeight = 17;
-			this.colorList.Location = new System.Drawing.Point(325, 41);
+			this.colorList.Location = new System.Drawing.Point(309, 41);
 			this.colorList.Margin = new System.Windows.Forms.Padding(0);
 			this.colorList.Name = "colorList";
-			this.colorList.Size = new System.Drawing.Size(135, 257);
+			this.colorList.Size = new System.Drawing.Size(151, 223);
 			this.colorList.TabIndex = 1;
 			this.colorList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.colorList_DrawItem);
 			this.colorList.SelectedIndexChanged += new System.EventHandler(this.colorList_SelectedIndexChanged);
@@ -182,7 +192,7 @@
 			this.cmykTextBox.Multiline = true;
 			this.cmykTextBox.Name = "cmykTextBox";
 			this.cmykTextBox.ReadOnly = true;
-			this.cmykTextBox.Size = new System.Drawing.Size(153, 20);
+			this.cmykTextBox.Size = new System.Drawing.Size(137, 20);
 			this.cmykTextBox.TabIndex = 12;
 			this.cmykTextBox.Text = "0, 0, 0, 0";
 			this.cmykTextBox.WordWrap = false;
@@ -208,7 +218,7 @@
 			this.hslTextBox.Multiline = true;
 			this.hslTextBox.Name = "hslTextBox";
 			this.hslTextBox.ReadOnly = true;
-			this.hslTextBox.Size = new System.Drawing.Size(153, 20);
+			this.hslTextBox.Size = new System.Drawing.Size(137, 20);
 			this.hslTextBox.TabIndex = 16;
 			this.hslTextBox.Text = "0, 0, 100";
 			this.hslTextBox.WordWrap = false;
@@ -234,7 +244,7 @@
 			this.rgbOneTextBox.Multiline = true;
 			this.rgbOneTextBox.Name = "rgbOneTextBox";
 			this.rgbOneTextBox.ReadOnly = true;
-			this.rgbOneTextBox.Size = new System.Drawing.Size(153, 20);
+			this.rgbOneTextBox.Size = new System.Drawing.Size(137, 20);
 			this.rgbOneTextBox.TabIndex = 19;
 			this.rgbOneTextBox.Text = "1; 1; 1";
 			this.rgbOneTextBox.WordWrap = false;
@@ -259,14 +269,15 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.onTopButton,
             this.formatButton,
+            this.toolStripSeparator1,
             this.clearListButton,
             this.deleteButton,
             this.aboutButton});
-			this.toolStrip1.Location = new System.Drawing.Point(320, 0);
+			this.toolStrip1.Location = new System.Drawing.Point(304, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Padding = new System.Windows.Forms.Padding(5);
 			this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.toolStrip1.Size = new System.Drawing.Size(149, 35);
+			this.toolStrip1.Size = new System.Drawing.Size(165, 35);
 			this.toolStrip1.TabIndex = 24;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -296,6 +307,13 @@
 			this.formatButton.ToolTipText = "Another format | Ctrl + F";
 			this.formatButton.Click += new System.EventHandler(this.formatButton_Click);
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.AutoSize = false;
+			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(2, 16);
+			// 
 			// clearListButton
 			// 
 			this.clearListButton.AutoSize = false;
@@ -316,7 +334,7 @@
 			this.deleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.deleteButton.Name = "deleteButton";
 			this.deleteButton.Size = new System.Drawing.Size(24, 25);
-			this.deleteButton.Text = "Remove selected color | Delete";
+			this.deleteButton.Text = "Delete selected color | Delete";
 			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
 			// 
 			// aboutButton
@@ -331,25 +349,14 @@
 			this.aboutButton.Text = "About | F1";
 			this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.Location = new System.Drawing.Point(6, 187);
-			this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(101, 15);
-			this.label1.TabIndex = 25;
-			this.label1.Text = "Pick color: Alt + X";
-			// 
 			// gradPanel1
 			// 
 			this.gradPanel1.BackColor = System.Drawing.Color.White;
 			this.gradPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.gradPanel1.Location = new System.Drawing.Point(9, 211);
+			this.gradPanel1.Location = new System.Drawing.Point(9, 187);
 			this.gradPanel1.Margin = new System.Windows.Forms.Padding(0);
 			this.gradPanel1.Name = "gradPanel1";
-			this.gradPanel1.Size = new System.Drawing.Size(24, 48);
+			this.gradPanel1.Size = new System.Drawing.Size(24, 24);
 			this.gradPanel1.TabIndex = 26;
 			this.gradPanel1.Click += new System.EventHandler(this.gradPanel_Click);
 			// 
@@ -357,10 +364,10 @@
 			// 
 			this.gradPanel2.BackColor = System.Drawing.Color.White;
 			this.gradPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.gradPanel2.Location = new System.Drawing.Point(33, 211);
+			this.gradPanel2.Location = new System.Drawing.Point(33, 187);
 			this.gradPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.gradPanel2.Name = "gradPanel2";
-			this.gradPanel2.Size = new System.Drawing.Size(24, 48);
+			this.gradPanel2.Size = new System.Drawing.Size(24, 24);
 			this.gradPanel2.TabIndex = 27;
 			this.gradPanel2.Click += new System.EventHandler(this.gradPanel_Click);
 			// 
@@ -368,10 +375,10 @@
 			// 
 			this.gradPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
 			this.gradPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.gradPanel3.Location = new System.Drawing.Point(81, 211);
+			this.gradPanel3.Location = new System.Drawing.Point(81, 187);
 			this.gradPanel3.Margin = new System.Windows.Forms.Padding(0);
 			this.gradPanel3.Name = "gradPanel3";
-			this.gradPanel3.Size = new System.Drawing.Size(24, 48);
+			this.gradPanel3.Size = new System.Drawing.Size(24, 24);
 			this.gradPanel3.TabIndex = 27;
 			this.gradPanel3.Click += new System.EventHandler(this.gradPanel_Click);
 			// 
@@ -379,10 +386,10 @@
 			// 
 			this.gradPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
 			this.gradPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.gradPanel4.Location = new System.Drawing.Point(105, 211);
+			this.gradPanel4.Location = new System.Drawing.Point(105, 187);
 			this.gradPanel4.Margin = new System.Windows.Forms.Padding(0);
 			this.gradPanel4.Name = "gradPanel4";
-			this.gradPanel4.Size = new System.Drawing.Size(24, 48);
+			this.gradPanel4.Size = new System.Drawing.Size(24, 24);
 			this.gradPanel4.TabIndex = 27;
 			this.gradPanel4.Click += new System.EventHandler(this.gradPanel_Click);
 			// 
@@ -390,10 +397,10 @@
 			// 
 			this.gradPanel.BackColor = System.Drawing.Color.White;
 			this.gradPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.gradPanel.Location = new System.Drawing.Point(57, 211);
+			this.gradPanel.Location = new System.Drawing.Point(57, 187);
 			this.gradPanel.Margin = new System.Windows.Forms.Padding(0);
 			this.gradPanel.Name = "gradPanel";
-			this.gradPanel.Size = new System.Drawing.Size(24, 48);
+			this.gradPanel.Size = new System.Drawing.Size(24, 24);
 			this.gradPanel.TabIndex = 28;
 			this.gradPanel.Click += new System.EventHandler(this.gradPanel_Click);
 			// 
@@ -402,7 +409,7 @@
 			this.rgbOneCopyButton.FlatAppearance.BorderSize = 0;
 			this.rgbOneCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.rgbOneCopyButton.Image = ((System.Drawing.Image)(resources.GetObject("rgbOneCopyButton.Image")));
-			this.rgbOneCopyButton.Location = new System.Drawing.Point(293, 225);
+			this.rgbOneCopyButton.Location = new System.Drawing.Point(277, 225);
 			this.rgbOneCopyButton.Name = "rgbOneCopyButton";
 			this.rgbOneCopyButton.Size = new System.Drawing.Size(25, 25);
 			this.rgbOneCopyButton.TabIndex = 20;
@@ -414,7 +421,7 @@
 			this.hslCopyButton.FlatAppearance.BorderSize = 0;
 			this.hslCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.hslCopyButton.Image = ((System.Drawing.Image)(resources.GetObject("hslCopyButton.Image")));
-			this.hslCopyButton.Location = new System.Drawing.Point(293, 175);
+			this.hslCopyButton.Location = new System.Drawing.Point(277, 175);
 			this.hslCopyButton.Name = "hslCopyButton";
 			this.hslCopyButton.Size = new System.Drawing.Size(25, 25);
 			this.hslCopyButton.TabIndex = 17;
@@ -426,7 +433,7 @@
 			this.cmykCopyButton.FlatAppearance.BorderSize = 0;
 			this.cmykCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.cmykCopyButton.Image = ((System.Drawing.Image)(resources.GetObject("cmykCopyButton.Image")));
-			this.cmykCopyButton.Location = new System.Drawing.Point(293, 125);
+			this.cmykCopyButton.Location = new System.Drawing.Point(277, 125);
 			this.cmykCopyButton.Name = "cmykCopyButton";
 			this.cmykCopyButton.Size = new System.Drawing.Size(25, 25);
 			this.cmykCopyButton.TabIndex = 14;
@@ -438,7 +445,7 @@
 			this.htmlCopyButton.FlatAppearance.BorderSize = 0;
 			this.htmlCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.htmlCopyButton.Image = ((System.Drawing.Image)(resources.GetObject("htmlCopyButton.Image")));
-			this.htmlCopyButton.Location = new System.Drawing.Point(293, 75);
+			this.htmlCopyButton.Location = new System.Drawing.Point(277, 75);
 			this.htmlCopyButton.Name = "htmlCopyButton";
 			this.htmlCopyButton.Size = new System.Drawing.Size(25, 25);
 			this.htmlCopyButton.TabIndex = 10;
@@ -450,22 +457,22 @@
 			this.rgbCopyButton.FlatAppearance.BorderSize = 0;
 			this.rgbCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.rgbCopyButton.Image = ((System.Drawing.Image)(resources.GetObject("rgbCopyButton.Image")));
-			this.rgbCopyButton.Location = new System.Drawing.Point(293, 25);
+			this.rgbCopyButton.Location = new System.Drawing.Point(277, 25);
 			this.rgbCopyButton.Name = "rgbCopyButton";
 			this.rgbCopyButton.Size = new System.Drawing.Size(25, 25);
 			this.rgbCopyButton.TabIndex = 9;
 			this.rgbCopyButton.UseVisualStyleBackColor = true;
 			this.rgbCopyButton.Click += new System.EventHandler(this.rgbCopyButton_Click);
 			// 
-			// pictureBox1
+			// aimPictureBox
 			// 
-			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox1.Location = new System.Drawing.Point(9, 9);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(120, 120);
-			this.pictureBox1.TabIndex = 0;
-			this.pictureBox1.TabStop = false;
+			this.aimPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.aimPictureBox.Location = new System.Drawing.Point(9, 58);
+			this.aimPictureBox.Margin = new System.Windows.Forms.Padding(0);
+			this.aimPictureBox.Name = "aimPictureBox";
+			this.aimPictureBox.Size = new System.Drawing.Size(120, 120);
+			this.aimPictureBox.TabIndex = 0;
+			this.aimPictureBox.TabStop = false;
 			// 
 			// hsvTextBox
 			// 
@@ -477,7 +484,7 @@
 			this.hsvTextBox.Multiline = true;
 			this.hsvTextBox.Name = "hsvTextBox";
 			this.hsvTextBox.ReadOnly = true;
-			this.hsvTextBox.Size = new System.Drawing.Size(153, 20);
+			this.hsvTextBox.Size = new System.Drawing.Size(137, 20);
 			this.hsvTextBox.TabIndex = 30;
 			this.hsvTextBox.Text = "0, 0, 100";
 			this.hsvTextBox.WordWrap = false;
@@ -498,7 +505,7 @@
 			this.hsvCopyButton.FlatAppearance.BorderSize = 0;
 			this.hsvCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.hsvCopyButton.Image = ((System.Drawing.Image)(resources.GetObject("hsvCopyButton.Image")));
-			this.hsvCopyButton.Location = new System.Drawing.Point(293, 275);
+			this.hsvCopyButton.Location = new System.Drawing.Point(277, 275);
 			this.hsvCopyButton.Name = "hsvCopyButton";
 			this.hsvCopyButton.Size = new System.Drawing.Size(25, 25);
 			this.hsvCopyButton.TabIndex = 31;
@@ -511,10 +518,10 @@
 			this.ratioPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.ratioPanel.Controls.Add(this.ratioWhiteLabel);
 			this.ratioPanel.Controls.Add(this.ratioBlackLabel);
-			this.ratioPanel.Location = new System.Drawing.Point(9, 265);
-			this.ratioPanel.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+			this.ratioPanel.Location = new System.Drawing.Point(9, 253);
+			this.ratioPanel.Margin = new System.Windows.Forms.Padding(0);
 			this.ratioPanel.Name = "ratioPanel";
-			this.ratioPanel.Size = new System.Drawing.Size(120, 33);
+			this.ratioPanel.Size = new System.Drawing.Size(120, 45);
 			this.ratioPanel.TabIndex = 32;
 			// 
 			// ratioWhiteLabel
@@ -523,7 +530,7 @@
 			this.ratioWhiteLabel.BackColor = System.Drawing.Color.Transparent;
 			this.ratioWhiteLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.ratioWhiteLabel.ForeColor = System.Drawing.Color.White;
-			this.ratioWhiteLabel.Location = new System.Drawing.Point(65, 8);
+			this.ratioWhiteLabel.Location = new System.Drawing.Point(65, 14);
 			this.ratioWhiteLabel.Margin = new System.Windows.Forms.Padding(3);
 			this.ratioWhiteLabel.Name = "ratioWhiteLabel";
 			this.ratioWhiteLabel.Size = new System.Drawing.Size(41, 15);
@@ -536,18 +543,103 @@
 			this.ratioBlackLabel.BackColor = System.Drawing.Color.Transparent;
 			this.ratioBlackLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.ratioBlackLabel.ForeColor = System.Drawing.Color.Black;
-			this.ratioBlackLabel.Location = new System.Drawing.Point(13, 8);
+			this.ratioBlackLabel.Location = new System.Drawing.Point(13, 14);
 			this.ratioBlackLabel.Margin = new System.Windows.Forms.Padding(3);
 			this.ratioBlackLabel.Name = "ratioBlackLabel";
 			this.ratioBlackLabel.Size = new System.Drawing.Size(37, 15);
 			this.ratioBlackLabel.TabIndex = 33;
 			this.ratioBlackLabel.Text = "Black";
 			// 
+			// renameTextBox
+			// 
+			this.renameTextBox.BackColor = System.Drawing.SystemColors.Window;
+			this.renameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.renameTextBox.Enabled = false;
+			this.renameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.renameTextBox.Location = new System.Drawing.Point(309, 278);
+			this.renameTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 9);
+			this.renameTextBox.Name = "renameTextBox";
+			this.renameTextBox.Size = new System.Drawing.Size(124, 23);
+			this.renameTextBox.TabIndex = 33;
+			this.renameTextBox.WordWrap = false;
+			this.renameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.renameTextBox_KeyUp);
+			// 
+			// renameButton
+			// 
+			this.renameButton.Enabled = false;
+			this.renameButton.FlatAppearance.BorderSize = 0;
+			this.renameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.renameButton.Image = ((System.Drawing.Image)(resources.GetObject("renameButton.Image")));
+			this.renameButton.Location = new System.Drawing.Point(435, 275);
+			this.renameButton.Name = "renameButton";
+			this.renameButton.Size = new System.Drawing.Size(25, 25);
+			this.renameButton.TabIndex = 34;
+			this.renameButton.UseVisualStyleBackColor = true;
+			this.renameButton.Click += new System.EventHandler(this.renameButton_Click);
+			// 
+			// linearGradPictureBox
+			// 
+			this.linearGradPictureBox.BackColor = System.Drawing.Color.White;
+			this.linearGradPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.linearGradPictureBox.Location = new System.Drawing.Point(9, 220);
+			this.linearGradPictureBox.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
+			this.linearGradPictureBox.Name = "linearGradPictureBox";
+			this.linearGradPictureBox.Size = new System.Drawing.Size(120, 24);
+			this.linearGradPictureBox.TabIndex = 35;
+			this.linearGradPictureBox.TabStop = false;
+			this.linearGradPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.linearGradPictureBox_MouseClick);
+			// 
+			// statusStrip1
+			// 
+			this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pickColorStatusLabel,
+            this.copyColorStatusLabel,
+            this.rgbStatusLabel,
+            this.hexStatusLabel});
+			this.statusStrip1.Location = new System.Drawing.Point(0, 307);
+			this.statusStrip1.Name = "statusStrip1";
+			this.statusStrip1.Size = new System.Drawing.Size(469, 25);
+			this.statusStrip1.TabIndex = 36;
+			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// rgbStatusLabel
+			// 
+			this.rgbStatusLabel.Margin = new System.Windows.Forms.Padding(5);
+			this.rgbStatusLabel.Name = "rgbStatusLabel";
+			this.rgbStatusLabel.Size = new System.Drawing.Size(101, 15);
+			this.rgbStatusLabel.Text = "RGB: 255, 255, 255";
+			// 
+			// hexStatusLabel
+			// 
+			this.hexStatusLabel.Margin = new System.Windows.Forms.Padding(5);
+			this.hexStatusLabel.Name = "hexStatusLabel";
+			this.hexStatusLabel.Size = new System.Drawing.Size(78, 15);
+			this.hexStatusLabel.Text = "HEX: #FFFFFF";
+			// 
+			// pickColorStatusLabel
+			// 
+			this.pickColorStatusLabel.Margin = new System.Windows.Forms.Padding(5);
+			this.pickColorStatusLabel.Name = "pickColorStatusLabel";
+			this.pickColorStatusLabel.Size = new System.Drawing.Size(98, 15);
+			this.pickColorStatusLabel.Text = "Pick color: Alt +X";
+			// 
+			// copyColorStatusLabel
+			// 
+			this.copyColorStatusLabel.Margin = new System.Windows.Forms.Padding(5);
+			this.copyColorStatusLabel.Name = "copyColorStatusLabel";
+			this.copyColorStatusLabel.Size = new System.Drawing.Size(108, 15);
+			this.copyColorStatusLabel.Text = "Copy color: Alt + C";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.ClientSize = new System.Drawing.Size(469, 307);
+			this.ClientSize = new System.Drawing.Size(469, 332);
+			this.Controls.Add(this.statusStrip1);
+			this.Controls.Add(this.linearGradPictureBox);
+			this.Controls.Add(this.renameButton);
+			this.Controls.Add(this.renameTextBox);
 			this.Controls.Add(this.ratioPanel);
 			this.Controls.Add(this.hsvCopyButton);
 			this.Controls.Add(this.hsvTextBox);
@@ -557,7 +649,6 @@
 			this.Controls.Add(this.gradPanel3);
 			this.Controls.Add(this.gradPanel2);
 			this.Controls.Add(this.gradPanel1);
-			this.Controls.Add(this.label1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.rgbOneCopyButton);
 			this.Controls.Add(this.rgbOneTextBox);
@@ -578,7 +669,7 @@
 			this.Controls.Add(this.rgbTextBox);
 			this.Controls.Add(this.colorPanel);
 			this.Controls.Add(this.colorList);
-			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.aimPictureBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
@@ -592,9 +683,12 @@
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.aimPictureBox)).EndInit();
 			this.ratioPanel.ResumeLayout(false);
 			this.ratioPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.linearGradPictureBox)).EndInit();
+			this.statusStrip1.ResumeLayout(false);
+			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -602,7 +696,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox aimPictureBox;
 		private System.Windows.Forms.Panel colorPanel;
 		private System.Windows.Forms.TextBox rgbTextBox;
 		private System.Windows.Forms.Label rgbLabel;
@@ -627,7 +721,6 @@
 		private System.Windows.Forms.ToolStripButton clearListButton;
 		private System.Windows.Forms.ToolStripButton aboutButton;
 		private System.Windows.Forms.ToolStripButton deleteButton;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel gradPanel1;
 		private System.Windows.Forms.Panel gradPanel2;
 		private System.Windows.Forms.Panel gradPanel3;
@@ -641,6 +734,15 @@
 		private System.Windows.Forms.Panel ratioPanel;
 		private System.Windows.Forms.Label ratioBlackLabel;
 		private System.Windows.Forms.Label ratioWhiteLabel;
+		private System.Windows.Forms.TextBox renameTextBox;
+		private System.Windows.Forms.Button renameButton;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.PictureBox linearGradPictureBox;
+		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.ToolStripStatusLabel rgbStatusLabel;
+		private System.Windows.Forms.ToolStripStatusLabel hexStatusLabel;
+		private System.Windows.Forms.ToolStripStatusLabel pickColorStatusLabel;
+		private System.Windows.Forms.ToolStripStatusLabel copyColorStatusLabel;
 	}
 }
 
