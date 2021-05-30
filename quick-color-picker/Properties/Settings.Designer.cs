@@ -12,7 +12,7 @@ namespace quick_color_picker.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,24 +26,24 @@ namespace quick_color_picker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool AlwaysOnTop {
+        public bool CallUpgrade {
             get {
-                return ((bool)(this["AlwaysOnTop"]));
+                return ((bool)(this["CallUpgrade"]));
             }
             set {
-                this["AlwaysOnTop"] = value;
+                this["CallUpgrade"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AnotherFormat {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Theme {
             get {
-                return ((bool)(this["AnotherFormat"]));
+                return ((int)(this["Theme"]));
             }
             set {
-                this["AnotherFormat"] = value;
+                this["Theme"] = value;
             }
         }
     }

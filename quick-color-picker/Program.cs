@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuickLibrary;
+using System;
 using System.Windows.Forms;
 
 namespace quick_color_picker
@@ -8,19 +9,27 @@ namespace quick_color_picker
 		[STAThread]
 		static void Main()
 		{
-			if (Environment.OSVersion.Version.Major >= 6)
-			{
-				SetProcessDPIAware();
-			}
-
-			ThemeManager.allowDarkModeForApp(true);
+			NativeMan.SetProcessDpiAwarenessContext(NativeMan.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm(ThemeManager.isDarkTheme()));
-		}
 
-		[System.Runtime.InteropServices.DllImport("user32.dll")]
-		private static extern bool SetProcessDPIAware();
+			if (Properties.Settings.Default.CallUpgrade)
+			{
+				Properties.Settings.Default.Upgrade();
+				Properties.Settings.Default.CallUpgrade = false;
+				Properties.Settings.Default.Save();
+			}
+
+			bool darkMode;
+			int theme = Properties.Settings.Default.Theme;
+			if (theme == 0) darkMode = ThemeMan.isDarkTheme();
+			else if (theme == 1) darkMode = false;
+			else darkMode = true;
+
+			if (darkMode) ThemeMan.AllowAppDarkMode(true);
+
+			Application.Run(new PickForm());
+		}
 	}
 }

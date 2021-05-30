@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quick-color-picker", "quick-color-picker\quick-color-picker.csproj", "{623FD142-66F0-417C-8833-43832B11CF49}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QuickColorPicker-Setup", "QuickColorPicker-Setup\QuickColorPicker-Setup.vdproj", "{8B699739-BFE6-4AEB-8C52-B99C68FEFD4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quick-color-picker", "quick-color-picker\quick-color-picker.csproj", "{BAF63D7F-E777-4B63-982F-E605FE36FF08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{623FD142-66F0-417C-8833-43832B11CF49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{623FD142-66F0-417C-8833-43832B11CF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{623FD142-66F0-417C-8833-43832B11CF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{623FD142-66F0-417C-8833-43832B11CF49}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B699739-BFE6-4AEB-8C52-B99C68FEFD4C}.Debug|Any CPU.ActiveCfg = Debug
-		{8B699739-BFE6-4AEB-8C52-B99C68FEFD4C}.Release|Any CPU.ActiveCfg = Release
+		{BAF63D7F-E777-4B63-982F-E605FE36FF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF63D7F-E777-4B63-982F-E605FE36FF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF63D7F-E777-4B63-982F-E605FE36FF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF63D7F-E777-4B63-982F-E605FE36FF08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BB89604D-1E0B-405E-82D4-5EDA220A59CE}
+		SolutionGuid = {BB47FD4B-71A6-4AF3-AF98-EB30181F8BD5}
 	EndGlobalSection
 EndGlobal
