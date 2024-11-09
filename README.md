@@ -1,3 +1,5 @@
+<p align="center">This project is kinda outdated. Please consider our new color picker app - <a href="https://github.com/ModuleArt/plain-color">PlainColor</a></p>
+
 <p align="center">
   <img src="/quick-color-picker/resources/imgs/picker96.png">
 </p>
